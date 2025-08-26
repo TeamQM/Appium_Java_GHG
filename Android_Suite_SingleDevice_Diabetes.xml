@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <listeners>
+        <listener class-name="com.framework.listeners.TestNGRetry"></listener>
+    </listeners>
+    <test name="Test">
+        <parameter name="udid" value="RZCR404KRKY"/>
+        <parameter name="systemPort" value="8200"/>
+        <parameter name="platform" value="Android 13"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.framework.android.testcases.documentsTestcases.*" />
+            <package name="com.framework.android.testcases.editProfileTestcases.*" />
+            <package name="com.framework.android.testcases.homePageTestcases.*" />
+            <package name="com.framework.android.testcases.loginScreen.*" />
+            <package name="com.framework.android.testcases.messagesTestcases.*" />
+            <package name="com.framework.android.testcases.uploadTestcases.*" />
+
+
+
+        </packages>
+      <!--  <classes>
+            <class name="com.framework.android.testcases.dummy"/>
+            &lt;!&ndash;            <class name="com.framework.android.testcases.loginScreen.TC_025_026_loginScreenFingerPrint"/>&ndash;&gt;
+            &lt;!&ndash;            <class name="com.framework.android.testcases.loginScreen.TC_012_013_014_015_016_017_018_038_039_040_041_043_044_loginPage"/>&ndash;&gt;
+        </classes>-->
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
+ 

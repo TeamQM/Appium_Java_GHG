@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Mobile" parallel="tests">
+    <test name="Galaxy S9+">
+        <parameter name="version" value="13" />
+        <parameter name="platform" value="Android" />
+        <parameter name="device" value="Galaxy S23" />
+        <parameter name="runId" value="Good Health Gateway Run 1" />
+        <classes>
+
+            <class name="com.framework.android.testcases.loginScreen.TC_012_013_014_015_016_017_018_038_039_040_041_043_044_loginPage" >
+
+        </class>
+        </classes>
+    </test>
+
+</suite>

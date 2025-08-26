@@ -1,0 +1,666 @@
+{
+    "LoginScreen" : {
+        "login_text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Log In']"
+        },
+        "UserName": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeTextField[@name='User Name']"
+        },
+        "Password": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeTextField[@name='Password']"
+        },
+        "Submit": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Submit']"
+        },
+        "ForgetPassword": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Forget Password?']"
+        },
+        "TryAgain": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name='Try Again'])[1]"
+        },
+        "TryfaceIdAgain": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton[@name='Try Face ID Again'])[1]"
+        },
+        "FingerPrint": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeTextField[@name='User Name']/..//XCUIElementTypeButton"
+        },
+        "AuthenticationRequired": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeAlert[@name='Face Not Recognised'])[1]"
+        },
+        "enterUsername": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Please enter username']"
+        },
+        "EnterPwd": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Please enter password']"
+        },
+        "loginFailedText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Login failed, please try again.']"
+        },
+        "BiometricLoginCancelled":{
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Biometric login cancelled/not suported.']"
+        }
+    },
+    "DocumentsScreen" : {
+        "DocumentIcon": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Documents')]"
+        },
+        "DownloadDocumnent": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Download Documents']"
+        },
+        "document_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='document']"
+        },
+        "PCFDocument": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'PCF')]"
+        },
+        "RXRewardCards": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'Printable Rx Rewards')]"
+        },
+
+        "DibetesHealthActionPlan": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'Diabetes Health Action Plan')]"
+        },
+        "OopsText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Oops')]"
+        },
+        "NoDHAPAvailableText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='No DHAP Available.']"
+        }
+    },
+
+    "MessageScreen" : {
+        "MessageText": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText)[4]"
+        },
+        "Message": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Messages')]"
+        },
+        "Inbox": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Inbox']"
+        },
+        "DeleteThisMessage": {
+            "locatorType": "xpath",
+            "locatorValue": " //XCUIElementTypeButton[@name='Delete this message']"
+        },
+        "noMessage": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name=\"No Message\"]"
+        },
+        "messageStatus":
+        {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name=\"You do not have any messages currently.\"]"
+        }
+
+    },
+
+    "UploadScreen" : {
+        "Upload": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,\"Upload\")]"
+        },
+        "FileGreaterthan20MB": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='pkpadmin,+529-2711-1-CE.pdf']"
+        },
+        "WarningMessage": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'The uploaded file exceeds the maximum file size,')]"
+        },
+
+        "fileToUpload": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeCell[contains(@name,'png')])[1]"
+        },
+        "fileName": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText)[3]"
+        },
+        "fileName_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'.pdf')]"
+        },
+        "fileNameJPG_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'.jpg')]"
+        },
+        "fileNamePNG_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'.png')]"
+        },
+
+        "UploadAnExistingFile": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Upload an existing file']"
+        },
+        "UploadBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Upload']"
+        },
+        "uploadNameDisplayed": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText)[5]"
+        },
+        "UploadProviderForm": {
+            "locatorType": "xpath",
+            "locatorValue": "///XCUIElementTypeOther[@name='Upload Provider Form']"
+        },
+        "PCFText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='PCF']"
+        },
+        "BackArrowButton": {
+            "locatorType": "xpath",
+            "locatorValue": " //XCUIElementTypeButton[@name='Back']"
+        },
+        "ShareIcon": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton)[3]"
+        },
+        "PrinterIcon": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton)[2]"
+        },
+        "RxcardText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='RxCard']"
+        },
+        "RxCardWallet": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Rx Card Wallet']"
+        },
+        "DHAPText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='DHAP']"
+        },
+        "Payroll": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Payroll')]"
+        },
+
+        "BackButton": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Back']"
+        },
+        "ProvideConfirmationFormBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'PCF')]/..//XCUIElementTypeButton"
+        },
+        "RxRewardCardBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'pharmacy')]/..//XCUIElementTypeButton"
+        },
+        "PrintableRxCardRewardsCardBtn": {
+            "locatorType": "xpath",
+            "locator": "//XCUIElementTypeOther[contains(@name,'Printable')]/..//XCUIElementTypeButton"
+        },
+        "DiabetesHealthActionPlanBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'Diabetes')]/..//XCUIElementTypeButton"
+        },
+        "printOption": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Print Options']"
+
+        },
+        "printIcon": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Print']"
+
+        },
+        "copyText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeImage[@name='copy']"
+        },
+        "uploadText" : {
+            "locatorType" : "xpath",
+            "locatorValue" : "(//XCUIElementTypeOther[contains(@name,'Upload ')])[1]"
+        },
+        "uploadProviderform": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeOther[@name=\\\"Upload Provider Form\\\"]"
+        },
+        "acceptableFileType": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[contains(@name,\"File should be JPG\")]"
+        },
+        "nameSharedText": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeButton[@name=\"Shared\"]"
+        },
+        "uploadstatusText": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[@name=\"Upload Status\"]"
+        },
+        "ProviderFormUploadedSuccessfully": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[@name=\"Provider Form uploaded successfully!\"]"
+        },
+        "okText": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeButton[@name=\"Ok\"]"
+        },
+        "takeAPhoto": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[@name=\"Take a photo\"]"
+        },
+        "PhotoCapture": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeButton[@name=\"PhotoCapture\"]"
+        },
+        "usePhoto": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[@name=\"Use Photo\"]"
+        },
+        "retake": {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[@name=\"Retake\"]"
+        },
+        "imagePicker": {
+            "locatorType" : "xpath",
+            "locatorValue" : "////XCUIElementTypeStaticText[contains(@name,\\\"image_picker\\\")]"
+        }
+    },
+
+    "EditProfile" : {
+        "editProfile": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name=\"Edit Profile\"]"
+        },
+        "redirectConfirmation": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Redirect Confirmation']"
+        },
+        "toEdit" : {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeStaticText[contains(@name,'To edit')]"
+        },
+        "goodHealthGateWay" : {
+            "locatorType" : "xpath",
+            "locatorValue" : "//XCUIElementTypeOther[contains(@value,'\u200Egoodhealthgateway.com')]"
+        }
+    },
+
+    "HomeScreen": {
+        "Menutext": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Menu']"
+        },
+        "DiabetesActivityText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Diabetes Activity']"
+        },
+        "okBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Ok']"
+        },
+        "Next": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Next']"
+        },
+        "Home": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Home')]"
+        },
+        "WelcomeBackText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Welcome back']"
+        },
+        "WelcomeText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'TESTFIRSTNAME73')]"
+        },
+        "ProgramSteps": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name=' Program Steps']"
+        },
+        "Rewards": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Rewards']"
+        },
+        "Annaul": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Annual')]"
+        },
+        "AnnaulEyeExam": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Annual Eye')]"
+        },
+        "AnnualEyeExamText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Annual Eye Exam']"
+        },
+        "AnnaulEyeTextDescription": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'You need')]"
+        },
+        "AnualFootExam": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Annual Foot')]"
+        },
+        "FastingBloodLipid": {
+            "locatorType": "xpath",
+            "locatorValue": " //XCUIElementTypeStaticText[contains(@name,'Fasting')]"
+        },
+        "UrineLevel": {
+            "locatorType": "xpath",
+            "locatorValue": "  //XCUIElementTypeStaticText[contains(@name,'Urine')]"
+        },
+        "HbA1c": {
+            "locatorType": "xpath",
+            "locatorValue": " //XCUIElementTypeStaticText[contains(@name,'HbA1c')]"
+        },
+        "DiabetesEducator": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Educator')]"
+        },
+        "AnnualAgreement": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Annual Agreement')]"
+        },
+        "Setting": {
+            "locatorType": "xpath",
+            "locatorValue": " (//XCUIElementTypeButton)[2]"
+        },
+        "Menu": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name=\"Menu\"]"
+        },
+        "Cancel": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=\"Cancel\"]"
+        },
+        "Continue": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=\"Continue\"]"
+        },
+        "DoneButton": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Done']"
+        },
+        "Agreement": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,\"Agreement\")]"
+        },
+        "hamburgerButton": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton)[1]"
+        },
+        "PcfText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'PCF')]"
+        },
+        "RXRewardCards": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'Printable Rx Rewards')]"
+        },
+
+        "DibetesHealthActionPlan": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@name,'Diabetes Health Action Plan')]"
+        },
+        "CloseBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Close']"
+        },
+        "Cancel2": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton[@name='Cancel'])[1]"
+        },
+        "Don’tShowMeThisAgain": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Don't show me this again']"
+        },
+        "LogOff": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Log Off']"
+        },
+        "EyeIcon": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton[@index='1'])[2]"
+        },
+        "privacyPolicy": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Privacy Policy']"
+        },
+        "privacyPolicyText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Privacy Policy']"
+        },
+        "TermAndCondition": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Terms & Conditions']"
+        },
+        "TermAndCondition_text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Terms & Conditions']"
+        },
+        "goodHealthGateway": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[contains(@value,'‎goodhealthgateway.com')]"
+        },
+        "ProgramStepsBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=' Program Steps']"
+        },
+        "RewardBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=' Rewards']"
+        },
+        "FAQs": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='FAQ']"
+        },
+        "FAQs_btn": {
+            "locatorType": "xpath",
+            "locatorValue": " //XCUIElementTypeStaticText[@name='FAQs']"
+        },
+        "contactUs_btn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Contact Us']"
+        },
+        "contact_Us": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Contact Us']"
+        },
+        "cancelText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Cancel']"
+        },
+        "PhoneLink": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[contains(@name,'(800)')]"
+        },
+        "YouWill": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'You will')]"
+        },
+        "TheCenters": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'The Centers')]"
+        },
+        "DiabetesResources": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Diabetes Resources']"
+        },
+        "DiabetesResources_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Diabetes Resources']"
+        },
+        "phoneNumberText": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name='Call 80064 38028'])[2]"
+        },
+        "phoneText1": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name=\"Phone\"])[1]"
+        },
+        "phoneNumberText1": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=\"(800) 232-4636\"]"
+        },
+        "tyyText1": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name=\"TTY\"]"
+        },
+        "tyyNumber1": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name=\"(888) 232-6348\"]"
+        },
+        "Email": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'TESTFIRSTNAME73 TESTLASTNAME73')]"
+        },
+        "emailIdText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='cdcinfo@cdc.gov']"
+        },
+        "callNumber": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name=\"Call 1800 232 4636\"])[2]"
+        },
+        "visitWebSite": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeButton[@name=\"Visit Website\"])[1]"
+        },
+        "tyynumberText": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name=\"Call 18882326348\"])[2]"
+        },
+        "submitNewConfirmation_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Submit a new Confirmation')]"
+        },
+        "simplyProvide_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Simply')]"
+        },
+        "hemoglobin_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'hemoglobin')]"
+        },
+        "overTime_Text": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Over time')]"
+        },
+        "betweenFootExams": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Look for cuts')]"
+        },
+        "eyeExam": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Because diabetes eye disease may develop without symptoms,')]"
+        },
+        "dialatedEyeExam": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'It is best to have')]"
+        },
+        "coldOrFlu": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Being sick')]"
+        },
+        "bloodLipidProfile": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'People with uncontrolled')]"
+        },
+        "proteinLevelMeasured": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,\"There's a lot\")]"
+        },
+        "myDiabetes": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Your doctor')]"
+        },
+        "scheduleNextInterview": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[contains(@name,'Schedule')]"
+        },
+        "schedulingWebsiteUrl": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='URL']"
+        },
+        "labWorkText": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Lab')]"
+        },
+        "DHAPDownloadBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[contains(@name,'Your DHAP')]"
+        },
+        "QuestionOrComments": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeTextField[@name='Question or Comments:']"
+        },
+        "CharRemaining": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'characters remaining')]"
+        },
+        "NoCharRemaining": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='No characters remaining']"
+        },
+        "WriteUs": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Write Us']"
+        },
+        "QuestionOrCommentsRequiredErrorMsg": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Question/Comments field is required.']"
+        },
+        "ShowFeatureOnStartUp_SwitchBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeSwitch[@name='Show features on startup']"
+        },
+        "EnableBiometricLogin_SwitchBtn": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeSwitch[@name='Enable Biometric Login']"
+        },
+        "ContactUS_PhoneNo" : {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeStaticText[@name='Phone']/..//XCUIElementTypeButton"
+        },
+        "Print_Icon": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeButton[@name='Print']"
+
+        },
+        "email": {
+            "locatorType": "xpath",
+            "locatorValue": "(//XCUIElementTypeStaticText[@name=\"Email\"])[1]"
+        },
+        "CDCUrl": {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='URL']"
+        }
+    },
+    "Email": {
+        "mailID" : {
+            "locatorType": "xpath",
+            "locatorValue": "//XCUIElementTypeOther[@name='Mail.toField']/XCUIElementTypeTextView/XCUIElementTypeOther[1]/XCUIElementTypeOther"
+        }
+    }
+}

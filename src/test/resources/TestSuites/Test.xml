@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <listeners>
+        <listener class-name="com.framework.listeners.TestNGRetry"></listener>
+    </listeners>
+    <test name="Test">
+        <parameter name="udid" value="380b98ec1b057ece"/>
+        <parameter name="systemPort" value="8200"/>
+        <parameter name="platform" value="android"/>
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.framework.android.testcases.documentsTestcases.TC_010_012_015_Documents_NotActivatedDocuments" />
+
+
+
+        </classes>
+      <!--  <classes>
+            <class name="com.framework.android.testcases.dummy"/>
+            &lt;!&ndash;            <class name="com.framework.android.testcases.loginScreen.TC_025_026_loginScreenFingerPrint"/>&ndash;&gt;
+            &lt;!&ndash;            <class name="com.framework.android.testcases.loginScreen.TC_012_013_014_015_016_017_018_038_039_040_041_043_044_loginPage"/>&ndash;&gt;
+        </classes>-->
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

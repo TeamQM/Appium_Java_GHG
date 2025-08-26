@@ -1,0 +1,888 @@
+{
+	
+	
+	
+	"LoginScreen_HW":{
+		
+		"Warning":{
+			
+			"locatorType":"accessibilityid",
+			"locatorValue":"Ok"
+		},
+		
+		"UsernameError":{
+			
+			"locatorType":"accessibilityid",
+			"locatorValue":"Please enter username"
+		},
+		"PasswordError":{
+			"locatorType":"accessibilityid",
+						"locatorValue":"Please enter password"
+			
+		},
+		
+		
+		"UserName":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]"
+		},
+		"Password":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]"
+		},
+		
+		"LoginButton":{
+			
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Log In']"
+		},
+		
+		"ForgotPasswordLink":{
+			
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Forgot Password?']"
+		},
+		
+		
+		
+		"RegistrationLink":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Register Now']"
+		},
+		
+		
+		
+		"GrantDialog":{
+			"locatorType":"id",
+			"locatorValue":"com.android.permissioncontroller:id/permission_deny_button"
+			
+		},
+		"AppVersionLink":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"v1.3.2"
+		},
+		"AppUpdatePopupHeader":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"App Update Available!"
+		},
+		
+		"AppUpdate":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Not Now']"
+		},
+		"NameOfTheUser":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.view.View[contains(@content-desc,'Welcome Back')]"
+		}
+		
+		
+		
+		
+	  },
+	  
+	  "ForgotPasswordScreeen_HW":{
+		
+		
+		"Header":{
+			"locatorType":"xpath",
+		"locatorValue":"//android.view.View[contains(@content-desc,'Forgot')]"
+		},
+		"BackArrow":{
+			
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Back']"
+		}
+	  },
+	  
+	  
+	  
+	 	
+	"HomePage":{
+		
+		
+		"InboxTab":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[contains(@content-desc,'Inbox') and contains(@content-desc,'Tab')]"
+		}
+		
+	},
+	
+	
+	"InboxPage":{
+		"Heading":{
+			
+			"locatorType":"xpath",
+			"locatorValue":"//android.view.View[@content-desc='Inbox']"
+		},
+		
+		"InboxOverview":{
+			"locatorType":"uiautomator",
+			"locatorValue":"new UiSelector().descriptionContains(\"unread\").descriptionContains(\"conversations\")"
+		},
+		"TotalMessages":{
+			"locatorType":"classname",
+			"locatorValue":"android.widget.ImageView"
+		},
+		"NewMessageIcon":{
+			"locatorType":"uiautomator",
+			"locatorValue":"new UiSelector().className(\"android.widget.Button\").instance(0)"
+		},
+		
+		
+		
+	},
+	"NewMessageScreenInInbox":{
+	
+		"Heading":	
+		{
+		"locatorType":"accessibilityid",
+		"locatorValue":"New Message"
+		},
+		"BackArrow":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Back"
+		},
+		"MessageSubject":{
+			"locatorType":"uiautomator",
+			"locatorValue":"new UiSelector().className(\"android.widget.EditText\").instance(0)"
+		},
+		"MessageBody":{
+			"locatorType":"uiautomator",
+			"locatorValue":"new UiSelector().className(\"android.widget.EditText\").instance(1)"
+		},
+		"SendMessageButton":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.Button[@content-desc='Send Message']"
+		},
+		"SuccessMessagePopupText":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Thank you for your question/comments. We will get back to you as soon as possible."
+		},
+		"AcceptOk":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Ok"
+		}
+		
+	},
+	
+	
+	
+	
+  "LoginScreen": {
+
+    "Okbutton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Ok']"
+    },
+    "UserName": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.EditText[@text='User Name']"
+    },
+    "Password": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.EditText[@text='Password']"
+    },
+    "Submit": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Submit']"
+    },
+    "ForgetPassword": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Forget Password?']"
+    },
+    "TryAgain": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@text='Retry']"
+    },
+    "TryfaceIdAgain": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.TextView[@index='1'])[2]"
+    },
+    "FingerPrint": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.Button[@index='0'])[1]"
+    },
+    "FaceRecognition": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.ImageView[@content-desc='face recognition']"
+    },
+    "AuthenticationRequired": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='Authentication required']"
+    },
+    "enterUsername": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Please enter username']"
+    },
+    "EnterPwd": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Please enter password']"
+    },
+    "loginFailedText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Login failed, please try again.']"
+    },
+    "login_text":{
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Log In']"
+    },
+    "BiometricLoginCancelled":{
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Biometric login cancelled/not supported.']"
+    }
+  },
+  "DocumentsScreen": {
+    "DocumentIcon": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Documents')]"
+    },
+    "DownloadDocumnent": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Download Documents']"
+    },
+    "DiabetesHealthAction": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Diabetes Health Action')]/..//android.widget.Button"
+    },
+    "NoDHAPAvailableText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='No DHAP Available.']"
+    },
+    "OopsText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Oops!']"
+    },
+    "PCFDocument": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'PCF')]"
+    },
+    "RXRewardCards": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Rx Rewards Card')])[1]"
+    },
+    "PrintableRXRewardCards": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Printable Rx Rewards')])[1]"
+    },
+    "DibetesHealthActionPlan": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Diabetes')]"
+    }
+  },
+  "MessageScreen": {
+    "Message": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Messages')]"
+    },
+    "onbordingMessageText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Messages')]"
+    },
+    "Inbox": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Inbox']"
+    },
+    "DeleteThisMessage": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Delete this message']"
+    },
+    "noMessage": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='No Message']"
+    },
+    "messageStatus": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='You do not have any messages currently.']"
+    }
+  },
+  "UploadScreen": {
+    "onboardUpload": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Upload')])[1]"
+    },
+    "fileName_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.TextView[contains(@text,'.pdf')])[2]"
+    },
+
+    "fileSize_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.TextView[contains(@text,'.pdf')])[2]"
+    },
+
+    "fileNameJPG_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.TextView[contains(@text,'.jpg')])[1]"
+    },
+    "fileNamePNG_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.TextView[contains(@text,'.png')])[1]"
+    },
+    "UploadAnExistingFile": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Upload an existing file']"
+    },
+    "allowBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@text='Allow']"
+    },
+    "UploadBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Upload']"
+    },
+
+    "Upload": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Upload')]"
+    },
+    "uploadNameDisplayed": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@index='4']"
+    },
+    "UploadProviderForm": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Upload Provider Form']"
+    },
+    "PCFText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='PCF']"
+    },
+    "PrintIconDropdown": {
+      "locatorType": "id",
+      "locatorValue": "com.android.printspooler:id/expand_collapse_icon"
+    },
+    "BackArrow": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.ImageButton[@content-desc='Collapse']"
+    },
+    "FileGreaterthan20MB": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='pkpadmin,+529-2711-1-CE.pdf']"
+    },
+    "FileLessthan20MB": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='Free_Test_Data_10.5MB_PDF.pdf']"
+    },
+    "WarningMessage": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'The uploaded file exceeds the maximum file size')]"
+    },
+    "BackArrowButton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='0']"
+    },
+    "ShareIcon": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='1']"
+    },
+    "PrinterIcon": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.Button[@index='0'])[2]"
+    },
+    "RxcardText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='RxCard']"
+    },
+    "RxCardWallet": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Rx Card Wallet']"
+    },
+    "DHAPText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='DHAP']"
+    },
+    "Payroll": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'Payroll')]"
+    },
+    "BackButton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='0']"
+    },
+    "ProvideConfirmationFormBtn": {
+      "locatorType": "xpath",
+      "locatorValue": " //android.view.View[contains(@content-desc,'PCF')]/..//android.widget.Button"
+    },
+    "RxRewardCardBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Rx Rewards Card')]/..//android.widget.Button)[1]"
+    },
+    "PrintableRxCardRewardsCardBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Rx Rewards Card')]/..//android.widget.Button)[2]"
+    },
+    "DiabetesHealthActionPlanBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Diabetes Health')]/..//android.widget.Button"
+    },
+    "DiabetesResources_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Diabetes Resources']"
+    },
+
+    "printOption": {
+      "locatorType": "id",
+      "locatorValue": "com.android.printspooler:id/dynamic_content"
+    },
+    "copyText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='document.pdf']"
+    },
+    "uploadText": {
+      "locatorType": "xpath",
+      "locatorValue": "(//XCUIElementTypeOther[contains(@name,'Upload ')])[1]"
+    },
+    "uploadProviderform": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeOther[@name=\\\"Upload Provider Form\\\"]"
+    },
+    "acceptableFileType": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='File should be JPG, PNG, or PDF']"
+    },
+    "nameSharedText": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeButton[@name=\"Shared\"]"
+    },
+    "uploadstatusText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Upload Status']"
+    },
+    "ProviderFormUploadedSuccessfully": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Provider Form uploaded successfully!']"
+    },
+    "okText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Ok']"
+    },
+    "takeAPhoto": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Take a photo']"
+    },
+    "tphotoCapture": {
+      "locatorType": "xpath",
+      "locatorValue": "(//GLButton[@text='Take picture'])"
+    },
+    "retry": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='Retry']"
+    },
+    "okBtn_photo": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='OK']"
+    },
+    "PhotoCapture": {
+      "locatorType": "xpath",
+      "locatorValue": "(//GLButton[@text='Take picture'])"
+    },
+    "usePhoto": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeStaticText[@name=\"Use Photo\"]"
+    },
+    "retake": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='Retry']"
+    },
+    "imagePicker": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'.jpg')]"
+    },
+    "UploadDoc": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.RelativeLayout)[1]"
+    }
+  },
+  "EditProfile": {
+    "editProfile": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Edit Profile']"
+    },
+    "continueBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Continue']"
+    },
+    "redirectConfirmation": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Redirect Confirmation']"
+    },
+    "toEdit": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'To edit')]"
+    },
+    "goodHealthGateWay": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='www.goodhealthgateway.com']"
+    }
+  },
+  "HomeScreen": {
+
+    "Closebutton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Close']"
+    },
+    "Okbutton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Ok']"
+    },
+    "Menutext": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Menu']"
+    },
+    "betweenFootExams": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Look for cuts, cracks, sores, red spots, swelling, infected toenails,')]"
+    },
+    "eyeExam": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Because diabetes eye disease may develop without symptoms, regular eye exams')]"
+    },
+    "dialatedEyeExam": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'It is best to have an eye doctor give you a dilated eye exam at least once a year')]"
+    },
+    "coldOrFlu": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Being sick by itself can raise your blood glucose. Moreover, illness can prevent you')]"
+    },
+    "bloodLipidProfile": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'People with uncontrolled diabetes have high rates of cholesterol and triglyceride')]"
+    },
+    "proteinLevelMeasured": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Controlling your blood glucose can prevent or delay the onset of kidney disease')]"
+    },
+    "myDiabetes": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Your doctor or other health care provider is a good source of information about your diabetes')]"
+    },
+    "WelcomeBackText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Welcome back']"
+    },
+    "theCentersForDiseaseControlText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc=\"The Centers for Disease Control's Public Health Resource Center\"]"
+    },
+    "ContactUS_PhoneNo": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='(800) 643-8028']"
+    },
+    "Setting": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='1']"
+    },
+    "Print_Icon": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.Button[@index='0'])[2]"
+    },
+    "ShowFeatureOnStartUp_SwitchBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Switch[@content-desc='Show features on startup']"
+    },
+    "DontShowMeThisAgain": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc=\"Don't show me this again\"]"
+    },
+    "EnableBiometricLogin_SwitchBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Switch[@content-desc='Enable Biometric Login']"
+    },
+    "submitNewConfirmation_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Submit a new Confirmation')]"
+    },
+    "simplyProvide_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Simply provide a separate copy')]"
+    },
+    "hemoglobin_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'A hemoglobin A1c test')]"
+    },
+    "overTime_Text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Over time, high blood sugar')]"
+    },
+    "DiabetesActivityText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Diabetes Activity']"
+    },
+    "okBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Ok']"
+    },
+    "Next": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Next']  "
+    },
+    "Home": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Home')])[1]"
+    },
+    "Email": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@index='8']"
+    },
+    "WelcomeText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Welcome back']"
+    },
+    "ProgramSteps": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc=' Program Steps']"
+    },
+    "Rewards": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Rewards']"
+    },
+    "Annaul": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Annual Eye Exam')]"
+    },
+
+    "AnnaulEyeExam": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Annual Eye Exam')]"
+    },
+    "AnnualEyeExamText": {
+      "locatorType": "xpath",
+      "locatorValue": " //XCUIElementTypeStaticText[@name='Annual Eye Exam']"
+    },
+    "AnnaulEyeTextDescription": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'You need')]"
+    },
+    "labWorkText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Lab Work-up of HbA1c Levels Every 6 Months')]"
+    },
+    "AnualFootExam": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Annual Foot Exam')]"
+    },
+    "FastingBloodLipid": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Fasting Blood Lipid')]"
+    },
+    "UrineLevel": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Urine/Protein Levels')]"
+    },
+    "HbA1c": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'HbA1c Levels Every 6 Months')]"
+    },
+    "DiabetesEducator": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Diabetes Educator')]"
+    },
+    "AnnualAgreement": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,'Annual Agreement')]"
+    },
+    "Menu": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Menu']"
+    },
+    "Cancel": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Cancel']"
+    },
+    "Continue": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Continue']"
+    },
+    "DoneButton": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeButton[@name=\"Done\"]"
+    },
+    "Agreement": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeStaticText[contains(@name,\"Agreement\")]"
+    },
+    "hamburgerButton": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='0']"
+    },
+
+    "DibetesHealthActionPlan": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeOther[contains(@name,'Diabetes Health Action Plan')]"
+    },
+    "CloseBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Close']"
+    },
+    "Cancel2": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@text='Cancel']"
+    },
+    "Don’tShowMeThisAgain": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeButton[@name='Don't show me this again']"
+    },
+    "LogOff": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Log Off']"
+    },
+    "EyeIcon": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.EditText[@text='Password']//../android.widget.Button)[1]"
+    },
+    "privacyPolicyText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Privacy Policy']"
+    },
+    "TermAndCondition": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Terms & Conditions']"
+    },
+    "goodHealthGateway": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@text='www.goodhealthgateway.com']"
+    },
+    "ProgramStepsBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc=' Program Steps']"
+    },
+    "RewardBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc=' Rewards']"
+    },
+    "FAQs_btn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='FAQs']"
+    },
+    "FAQs": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='FAQ']"
+    },
+    "FAQs_text": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='FAQ']"
+    },
+    "contactUs_btn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Contact Us']"
+    },
+    "cancelText": {
+      "locatorType": "xpath",
+      "locatorValue": "(//XCUIElementTypeButton[@name=\"Cancel\"])[2]"
+    },
+    "PhoneLink": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='4']"
+    },
+    "YouWill": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Diabetes Educator')])[2]"
+    },
+    "DiabetsHealthAction": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[contains(@content-desc,'Diabetes Health Action')])[2]"
+    },
+    "DHAPDownloadBtn": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Your DHAP is available for download in Documents.']"
+    },
+    "TheCenters": {
+      "locatorType": "xpath",
+      "locatorValue": "//XCUIElementTypeStaticText[contains(@name,'The Centers')]"
+    },
+    "DiabetesResources": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Diabetes Resources']"
+    },
+    "phoneNumberText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='4']"
+    },
+    "phoneNumberKeypadText": {
+      "locatorType": "id",
+      "locatorValue": "com.samsung.android.dialer:id/digits"
+    },
+    "phoneText1": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[@content-desc='Phone'])[1]"
+    },
+    "phoneNumberText1": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='2']"
+    },
+    "tyyText1": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='TTY']"
+    },
+    "tyyNumber1": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@index='4']"
+    },
+    "email": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.view.View[@content-desc='Email'])[1]"
+    },
+    "emailIdText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='cdcinfo@cdc.gov']"
+    },
+    "visitWebSite": {
+      "locatorType": "xpath",
+      "locatorValue": "(//android.widget.Button[@content-desc='Visit Website'])[1]"
+    },
+    "tyynumberText": {
+      "locatorType": "xpath",
+      "locatorValue": "(//XCUIElementTypeStaticText[@name=\"Call 18882326348\"])[2]"
+    },
+    "scheduleNextInterview": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.Button[@content-desc='Schedule New Interview']"
+    },
+
+    "callNumber": {
+      "locatorType": "id",
+      "locatorValue": "com.samsung.android.dialer:id/digits"
+    },
+    "Search": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.TextView[@content-desc='Search']"
+    },
+    "SearchFileFormat": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.AutoCompleteTextView[contains(@text,'Search…')]"
+    },
+    "GHG_App": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.FrameLayout[@content-desc='GHG ']"
+    },
+    "CDCUrl": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[contains(@content-desc,\"Centers for Disease Control and Prevention\")]"
+    },
+    "CharRemaining": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='1000 characters remaining']"
+    },
+    "NoCharRemaining": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='No characters remaining']"
+    },
+    "QuestionOrCommentsRequiredErrorMsg": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Question/Comments field is required.']"
+    },
+    "QuestionOrComments": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.widget.EditText[@text='Question or Comments:']"
+    },
+    "MessageSentText": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Message Sent!']"
+    },
+    "ErrorMessageforTooManyAttempts": {
+      "locatorType": "xpath",
+      "locatorValue": "//android.view.View[@content-desc='Too many failed login attempts, please try again later.']"
+    }
+  }
+}
