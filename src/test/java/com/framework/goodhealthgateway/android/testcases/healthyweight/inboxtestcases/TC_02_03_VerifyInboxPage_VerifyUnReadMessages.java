@@ -14,24 +14,18 @@ public class TC_02_03_VerifyInboxPage_VerifyUnReadMessages {
 	
 	
 	
-	@Test
-  public void verifyInboxPage() throws Exception {
+	@Test(description="Verify unread messages count, conversations count, and header text in Inbox tab.",groups= {"Inbox","Regression"})
+  public void testInboxValidation() throws Exception {
   
-  
-//VerifyLoginScreen_HW   verifyLoginScreen_HW=		new				VerifyLoginScreen_HW() ;
-
-
-VerifyInboxScreen verifyInboxScreen=		new VerifyInboxScreen();
-
-
+VerifyInboxScreen verifyInboxScreen=new VerifyInboxScreen();
 verifyInboxScreen.checkingInbox();
 
   
   }
 	
 	
-	@Test
-	public void verifyNewMessageButton() throws Exception{
+	@Test(description="Verify that user can navigate from Inbox to New Message screen using the '+' icon.",groups= {"Messaging","Regression"})
+	public void testNewMessageButtonNavigation() throws Exception{
 		
 	VerifyInboxScreen inboxScreen=	new VerifyInboxScreen();
 	inboxScreen.checkNewMessageButton();
@@ -39,16 +33,16 @@ verifyInboxScreen.checkingInbox();
 	}
 	
 	
-	@Test
-	public void sendMessage() throws Exception{
+	@Test(description="Validate that user can compose and send a new message successfully.",groups={"Messaging", "Regression"})
+	public void testComposeNewMessage() throws Exception{
 		
 		VerifyInboxScreen inboxScreen=	new VerifyInboxScreen();
 		inboxScreen.createNewMessage();
 	}
 	
 	
-	@Test
-	public void verifyBackButtonInNewMessageScreen() throws Exception{
+	@Test(description="Verify that user can navigate back to the Inbox using the back arrow in New Message Screen.",groups= {"Messaging","Regression"})
+	public void testBackButtonNavigationInNewMessageScreen() throws Exception{
 	
 		
 	VerifyInboxScreen inboxScreen=	new VerifyInboxScreen();
@@ -56,8 +50,30 @@ verifyInboxScreen.checkingInbox();
 	}
 	
 	
+	@Test(description="Verify that message details open correctly when a conversation is selected.",groups= {"Messaging","Regression"})
+	public void testOpenMessage() throws Exception{
+
+      VerifyInboxScreen inboxScreen=  new VerifyInboxScreen();
+      inboxScreen.verifyMessageSubjectInInbox();
+    }
+
 	
 	
-	
+	@Test(description="Validate that automated messages do not allow user replies.",groups= {"Messaging","Regression","Negative"})
+	public void testReplyNotAllowedForAutomatedMessage() throws Exception{
+		
+		
+	VerifyInboxScreen inboxScreen=	new VerifyInboxScreen();
+	inboxScreen.checkingForReplyMessageFieldForAutomatedMessageInInboxScreen();
+	}
   
+	
+	
+	@Test(description="Validate Inbox header and text when no conversations are present.",groups= {"Inbox","Regression"})
+	public void testInboxHeaderWithNoMessages() throws Exception{
+				VerifyInboxScreen inboxScreen=			new VerifyInboxScreen();
+				inboxScreen.checkingInboxWithEmptyMessages();
+	}
+
+	
 }
