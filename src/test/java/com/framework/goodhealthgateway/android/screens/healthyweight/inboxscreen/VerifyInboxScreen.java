@@ -32,7 +32,7 @@ public class VerifyInboxScreen {
 				int conversationsCountGiven=0;
 	
 		//Extracting the data from Excel file 
-	     String username=ExcelReader.excel("UserName", "LoginPage");
+	     String username=ExcelReader.excel("UserNameForInboxMessagesCount", "LoginPage");
 	     String password=ExcelReader.excel("Password", "LoginPage");
 
 	    	//This Method is responsible for login operation
@@ -89,7 +89,7 @@ public class VerifyInboxScreen {
 		
 	//	mobileActions.scrollToEnd("android.widget.TextView");
 		//List<WebElement>   totalMessages=mobileActions.elements(MobileUtil.returnByBasedOnPageNameAndObjectName("InboxPage", "TotalMessages"));
-		int messagesCountAfterSwiping=	mobileActions.swipeUpAndCollectMessageCount(5, MobileUtil.returnByBasedOnPageNameAndObjectName("InboxScreen_HW", "TotalMessages"));
+		int messagesCountAfterSwiping=	mobileActions.swipeUpAndCollectMessageCount(9, MobileUtil.returnByBasedOnPageNameAndObjectName("InboxScreen_HW", "TotalMessages"));
 		int totalMessagesCount=	messagesCountAfterSwiping;
 		
 		System.out.println("No of Messages are "+totalMessagesCount);
@@ -133,8 +133,8 @@ public class VerifyInboxScreen {
      */	
 	
 	public void checkNewMessageButton() throws Exception{
-		
-			String username=	ExcelReader.excel("UserName", "LoginPage");
+												//UserNameForInboxMessageValidation
+			String username=	ExcelReader.excel("UserNameForInboxMessageValidation", "LoginPage");
 				String password=ExcelReader.excel("Password", "LoginPage");
 				
 		
@@ -211,6 +211,8 @@ public class VerifyInboxScreen {
 	
 
 String messageSubject=ExcelReader.excel("SufficientMessageSubjectText", "InboxPage");
+String uniqueMessageSubject = messageSubject + "_" + System.currentTimeMillis();
+
 String messageBody=ExcelReader.excel("SufficientMessageBodyText", "InboxPage");
 String popupText=ExcelReader.excel("SuccessMessagePopupTextInNewMessageScreen", "InboxPage");
 
@@ -220,7 +222,7 @@ checkNewMessageButton();
 //checkNavigationToNewMessageInInbox(username, password);
 		    	
 		    	
-		    	mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("NewMessageScreenInInbox", "MessageSubject"),"Message Subject Field", messageSubject);
+		    	mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("NewMessageScreenInInbox", "MessageSubject"),"Message Subject Field", uniqueMessageSubject);
 		    	
 		    	mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("NewMessageScreenInInbox", "MessageBody"),"Message Body Field",messageBody);
 

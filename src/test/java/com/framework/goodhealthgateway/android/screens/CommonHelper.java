@@ -77,7 +77,7 @@ public class CommonHelper {
         mobileActions.clickIfVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"),"Warning");
          
      */
-        mobileActions.smartClickWithVerification(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"), "Ok Button in Warning Popup", 5);
+        mobileActions.smartClickWithVerification(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"), "Ok Button in Warning Popup", 3);
     
         mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "UserName"), "username",UserName);
      

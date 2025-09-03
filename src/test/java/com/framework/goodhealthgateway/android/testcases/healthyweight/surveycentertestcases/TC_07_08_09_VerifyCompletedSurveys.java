@@ -6,25 +6,23 @@ import com.framework.goodhealthgateway.listeners.SuiteEvent;
 import com.framework.goodhealthgateway.utilities.ExcelReader;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 @Listeners({ SuiteEvent.class, MobileEvent.class })
-public class TC_01_02_VerifySurveyCenterScreen {
+public class TC_07_08_09_VerifyCompletedSurveys {
 
-    @Test(description="Verify that after navigating to the Survey Center screen, the welcome text is displayed properly.",groups= {"SurveyCenter", "Regression"})
-    public void checkingSurveyCenterScreen() throws Exception {
+    @Test(description ="Verify that when there are no completed surveys available, the proper No Surveys Found message is displayed.",groups= {"CompletedSurveys", "Regression"})
+    public void testNoSurveysFoundMsgsForCompletedSurveys() throws Exception {
+        SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
+        surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserNameNoCompletedSurvey", "LoginPage"),
+                ExcelReader.excel("Password", "LoginPage"));
+        surveyCenterScreenHw.verifyNoCompletedSurveysMessage();
+    }
+    @Test(description="Verify navigation to Completed Surveys page and that the back button works correctly.",groups= {"CompletedSurveys", "Regression"})
+    public void testBackButtonInCompletedSurveysPage() throws Exception {
         SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
         surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
                 ExcelReader.excel("Password", "LoginPage"));
-        surveyCenterScreenHw.verifyWelcomeText();
+        surveyCenterScreenHw.verifyBackButtonInCompletedSurveysScreen();
     }
-
-    @Test(description = "Verify that the welcome text box in the Survey Center can be dismissed by clicking the close (x) button.",groups= {"SurveyCenter","UI", "Regression"})
-    public void verifyWelcomeTextBoxCloses() throws Exception {
-        SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
-        surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
-                ExcelReader.excel("Password", "LoginPage"));
-        surveyCenterScreenHw.verifyWelcomeTextBoxCloses();
-
-    }
-
-
 }
+ 

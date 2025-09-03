@@ -121,7 +121,7 @@ String currantActivity ;
 	public boolean waitForPageToLoadViaPageSource() {
 	    try {
 	        AppiumDriver driver = DriverFactory.getInstance().getMobileDriver();
-	        WebDriverWait wait = new WebDriverWait(driver, 30);
+	        WebDriverWait wait = new WebDriverWait(driver, 20);
 	        
 	        return wait.until(dr -> {
 	            String pageSource = dr.getPageSource();
@@ -141,9 +141,9 @@ String currantActivity ;
 	    
 	    // Check for the specific dismiss button in page source
 	    // The locator: //android.view.View[@content-desc="Dismiss"]
-	    boolean hasDismissButton = pageSource.contains("content-desc=\"Dismiss\"") ||
-	                              pageSource.contains("content-desc='Dismiss'") ||
-	                              pageSource.contains("Dismiss");
+	    boolean hasDismissButton = pageSource.contains("content-desc=\"Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.\"") ||
+	                              pageSource.contains("content-desc='Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.'") ||
+	                             pageSource.contains("Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.");
 	    
 	    System.out.println("Dismiss button present in source: " + hasDismissButton);
 	    return hasDismissButton;
@@ -161,7 +161,7 @@ String currantActivity ;
 	}
 	public boolean waitForVisible2(By locator) {
 		try {
-			WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 10);
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 15);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 			return true;
 		}
@@ -198,6 +198,54 @@ String currantActivity ;
 	        ReportManager.logInfo("Successfully performed " + successfulClicks + " clicks on " + " <b style=\"color:green;\">" + info + "</b>");
 	    } else {
 	        ReportManager.logInfo("Not Displayed the " + " <b style=\"color:green;\">" + info + "</b> ");
+	    }
+	}
+	
+	
+	public void smartClickWithVerification1(By locator, String info, int maxClicks) {
+	    int successfulClicks = 0;
+	    
+	    for (int i = 0; i < maxClicks; i++) {
+	        try {
+	            // Wait for element with SHORT timeout (2 seconds)
+	            WebElement element = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 
+	                    3)
+	                    .until(ExpectedConditions.elementToBeClickable(locator));
+	            
+	            element.click();
+	            successfulClicks++;
+	            System.out.println("Successful click #" + successfulClicks + " on: " + info);
+	            
+	            // Very short wait for UI response
+	            Thread.sleep(200);
+	            
+	            // INSTANT CHECK: Use presence check instead of visibility with 0 timeout
+	            if (!isElementPresent(locator, 1)) {
+	                System.out.println("Element completely gone after " + successfulClicks + " clicks - stopping");
+	                break;
+	            }
+	            
+	        } catch (TimeoutException e) {
+	            System.out.println("Element not found/clickable on attempt " + (i + 1) + " - stopping");
+	            break;
+	        } catch (Exception e) {
+	            System.out.println("Click failed on attempt " + (i + 1) + " - stopping");
+	            break;
+	        }
+	    }
+	    
+	    // Reporting logic
+	}
+
+	// Fast presence check (not visibility)
+	private boolean isElementPresent(By locator, int timeoutSeconds) {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 
+	            timeoutSeconds);
+	        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	        return true;
+	    } catch (TimeoutException e) {
+	        return false;
 	    }
 	}
 	
@@ -303,6 +351,7 @@ String currantActivity ;
 	    return allMessages;
 	}
 
+	
 
 	private String getElementIdentifier(WebElement element) {
 	    try {
@@ -315,6 +364,107 @@ String currantActivity ;
 	        return element.toString();
 	    }
 	}
+	
+	
+	
+	public List<WebElement> scrollAndCollectByXpath(By locator, String className) {
+	    List<WebElement> allElements = new ArrayList<>();
+	    Set<String> seenElementIds = new HashSet<>();
+	    int consecutiveNoNewElements = 0;
+	    final int MAX_CONSECUTIVE_NO_NEW = 2; // Safety to prevent infinite loops
+
+	    try {
+	        while (consecutiveNoNewElements < MAX_CONSECUTIVE_NO_NEW) {
+	            List<WebElement> currentElements = elements(locator);
+	            int newElementsFound = 0;
+
+	            // Process current batch of elements
+	            for (WebElement element : currentElements) {
+	                String elementId = getStableElementIdentifier(element);
+	                if (!seenElementIds.contains(elementId)) {
+	                    allElements.add(element);
+	                    seenElementIds.add(elementId);
+	                    newElementsFound++;
+	                }
+	            }
+
+	            // If no new elements found, increment counter
+	            if (newElementsFound == 0) {
+	                consecutiveNoNewElements++;
+	            } else {
+	                consecutiveNoNewElements = 0; // Reset counter if new elements found
+	            }
+
+	            // Try to scroll if we might have more content
+	            if (consecutiveNoNewElements < MAX_CONSECUTIVE_NO_NEW) {
+	                boolean scrollSuccess = performScroll(className);
+	                if (!scrollSuccess) {
+	                    break; // Can't scroll further
+	                }
+	                
+	                // Wait for potential new content with explicit wait instead of sleep
+	                waitForPotentialNewContent();
+	            }
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Scroll collection interrupted: " + e.getMessage());
+	    }
+
+	    return allElements;
+	}
+
+	private String getStableElementIdentifier(WebElement element) {
+	    try {
+	        // Use multiple attributes for better uniqueness
+	        String text = element.getText();
+	        String resourceId = element.getAttribute("resource-id");
+	        String contentDesc = element.getAttribute("content-desc");
+	        
+	        return (text != null ? text : "") + "|" + 
+	               (resourceId != null ? resourceId : "") + "|" + 
+	               (contentDesc != null ? contentDesc : "");
+	    } catch (StaleElementReferenceException e) {
+	        return "stale-" + System.currentTimeMillis(); // Handle stale elements
+	    }
+	}
+
+	private boolean performScroll(String className) {
+	    try {
+	        DriverFactory.getInstance().getMobileDriver().findElement(
+	            MobileBy.AndroidUIAutomator(
+	                "new UiScrollable(new UiSelector().className(\"" + className + "\")).scrollForward()"
+	            )
+	        );
+	        return true;
+	    } catch (Exception e) {
+	        return false; // Scroll failed
+	    }
+	}
+
+	private void waitForPotentialNewContent() {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 
+	            5);
+	        wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete'"));
+	    } catch (Exception e) {
+	        // Continue even if wait fails
+	    }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	  public void clickIfVisible(By locator,String info) {
 	        try {
 	            WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(),35);

@@ -13,7 +13,8 @@
 
 		<class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_01_02_VerifySurveyCenterScreen"/>		
 		<class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_04_05_06_VerifyActiveSurveys"/>
-	
+			<class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_07_08_09_VerifyCompletedSurveys"/>
+
 		</classes>
 
 	</test> <!-- Test -->

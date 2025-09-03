@@ -256,6 +256,34 @@
 	       "locatorType":"xpath",
 	       "locatorValue":"(//android.widget.Button)[1]"
 	     },
+		 
+		 "NoSurveysFoundTextInActiveSurveysSection": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.view.View[@content-desc='No surveys found']"
+		 }, 
+		 
+		 "ViewAllButtonForActiveSurveys": {
+		        "locatorType":"xpath",
+		        "locatorValue":"(//android.widget.Button[@content-desc='View All'])[1]"
+		      },
+		 	 "ActiveSurveysList":{
+		 		"locatorType":"xpath",
+		 		"locatorValue":"//android.view.View[contains(@content-desc,'Assigned')]"
+		 	 },
+			 
+			 "NoSurveysFoundTextInActiveSurveysPage": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.view.View[@content-desc='You do not have any surveys currently.']"
+			 },
+			 "ActiveSurveysPageTitle": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.view.View[@content-desc='Active Surveys']"
+			 },
+			 "BackButtonInActiveSurveysPage": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.widget.Button[@content-desc='Back']"
+			 },
+		 
 	     "NoSurveysFoundTextInCompletedSurveysSection": {
 	       "locatorType":"xpath",
 	       "locatorValue":"//android.view.View[@content-desc='No surveys found']"
@@ -268,15 +296,30 @@
 	       "locatorType":"xpath",
 	       "locatorValue":"(//android.widget.Button[@content-desc='View All'])[2]"
 	     },
-	     "ViewAllButtonForActiveSurveys": {
-	       "locatorType":"xpath",
-	       "locatorValue":"(//android.widget.Button[@content-desc='View All'])[1]"
-	     }
+		 "BackButtonInCompletedSurveysPage": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.widget.Button[@content-desc='Back']"
+		 },
+		 "CompletedSurveysPageTitle": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.view.View[@content-desc='Completed Surveys']"
+		 }
 
 
 	   },
 	 
-	
+	"ActiveSurveysScreen":{
+		
+		"ActiveSurveysHeader":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Active Surveys"
+		},
+		"BackArrow":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Back"
+		}
+		
+	},
 	
 	
 	
