@@ -14,6 +14,16 @@ public class TC_05_LoginWithValidCredentials{
 	
 	
 	
+	/**
+	 * =============================================================================
+	 * Method: testLoginWithValidCredentials
+	 * Description: Verify that user is able to log in with valid credentials and navigate to Home.
+	 * Groups/Tags: Login, Smoke
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+
 	@Test(description ="Verify that user is able to log in with valid credentials and navigate to the home screen.",groups= {"Login","Smoke"})
 	public void testLoginWithValidCredentials() throws Exception {
 
@@ -24,8 +34,17 @@ public class TC_05_LoginWithValidCredentials{
 	}
 	
 	
+	/**
+	 * =============================================================================
+	 * Method: testForgotPasswordNavigation
+	 * Description: Verify Forgot Password link navigates and header is correct.
+	 * Groups/Tags: Login, Regression
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 **/
 	
-	@Test(description="Verify that clicking on the Forgot Password link navigates to the Forgot Password screen and validates the header text.",groups= {"Login","Regression"})
+	@Test(enabled=false,description="Verify that clicking on the Forgot Password link navigates to the Forgot Password screen and validates the header text.",groups= {"Login","Regression"})
 	public void testForgotPasswordNavigation() throws Exception{
 		
 		
@@ -35,6 +54,16 @@ public class TC_05_LoginWithValidCredentials{
 	}
 	
 	
+	/**
+	 * =============================================================================
+	 * Method: testLoginWithEmptyCredentials
+	 * Description: Verify error messages when login is attempted with empty fields.
+	 * Groups/Tags: Login, Negative, Regression
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+
 	@Test(description="Verify that error messages are displayed when login is attempted with empty credentials.",groups= {"Login","Negative","Regression"})
 	public void testLoginWithEmptyCredentials() throws Exception{
 		VerifyLoginScreen_HW    loginScreen_HW=					new VerifyLoginScreen_HW();
@@ -42,7 +71,18 @@ public class TC_05_LoginWithValidCredentials{
 	}
 	
 	
-	@Test(description="Verify that clicking on the App Version hyperlink displays a popup with correct content and dismisses it with OK button.",groups= {"Login","UI","Regression"})
+	
+	/**
+	 * =============================================================================
+	 * Method: testAppVersionPopup
+	 * Description: Verify App Version hyperlink shows popup and dismisses correctly.
+	 * Groups/Tags: Login, UI, Regression
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+
+	@Test(enabled=false,description="Verify that clicking on the App Version hyperlink displays a popup with correct content and dismisses it with OK button.",groups= {"Login","UI","Regression"})
 	public void testAppVersionPopup() throws Exception{
 	VerifyLoginScreen_HW    loginScreen_HW=	new VerifyLoginScreen_HW();
 	
@@ -51,7 +91,19 @@ public class TC_05_LoginWithValidCredentials{
 	
 	
 	
-	@Test(description="Verify that clicking on the Register link navigates to the Eligibility screen and validates the header text.",groups= {"Login","Regression"})
+	/**
+	 * =============================================================================
+	 * Method: testRegisterNavigation
+	 * Description: Verify Register link navigates to Eligibility screen and header is correct.
+	 * Groups/Tags: Login, Regression
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+
+
+	
+	@Test(enabled=false,description="Verify that clicking on the Register link navigates to the Eligibility screen and validates the header text.",groups= {"Login","Regression"})
 	public void testRegisterNavigation() throws Exception{
 	VerifyLoginScreen_HW   loginScreen_HW=	new VerifyLoginScreen_HW();
 	

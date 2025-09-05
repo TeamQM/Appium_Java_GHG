@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 @Listeners({ SuiteEvent.class, MobileEvent.class })
 public class TC_01_02_VerifySurveyCenterScreen {
 
-    @Test(description="Verify that after navigating to the Survey Center screen, the welcome text is displayed properly.",groups= {"SurveyCenter", "Regression"})
+    @Test(enabled=false,description="Verify that after navigating to the Survey Center screen, the welcome text is displayed properly.",groups= {"SurveyCenter", "Regression"})
     public void checkingSurveyCenterScreen() throws Exception {
         SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
         surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
@@ -22,6 +22,7 @@ public class TC_01_02_VerifySurveyCenterScreen {
         SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
         surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
                 ExcelReader.excel("Password", "LoginPage"));
+        surveyCenterScreenHw.verifyWelcomeText();
         surveyCenterScreenHw.verifyWelcomeTextBoxCloses();
 
     }

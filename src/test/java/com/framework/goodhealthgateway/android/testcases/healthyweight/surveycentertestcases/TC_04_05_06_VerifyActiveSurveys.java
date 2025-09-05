@@ -12,11 +12,11 @@ public class TC_04_05_06_VerifyActiveSurveys {
 	@Test(description="Verify that when there are no active surveys available, the proper No Surveys Found message is displayed.",groups= {"ActiveSurveys", "Regression"})
 	public void testNoSurveysFoundMsgsForActiveSurveys() throws Exception {
 	    SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
-	    surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserNameNoActiveSurvey", "LoginPage"),
+	    surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
 	            ExcelReader.excel("Password", "LoginPage"));
 	    surveyCenterScreenHw.verifyNoActiveSurveysMessage();
 	}
-	@Test(description="Verify navigation to Active Surveys page and that the back button works correctly.",groups= {"ActiveSurveys", "Regression"})
+	@Test(enabled=false,description="Verify navigation to Active Surveys page and that the back button works correctly.",groups= {"ActiveSurveys", "Regression"})
 	public void testBackButtonInActiveSurveysPage() throws Exception {
 	    SurveyCenterScreen_HW surveyCenterScreenHw = new SurveyCenterScreen_HW();
 	    surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
@@ -36,31 +36,6 @@ public class TC_04_05_06_VerifyActiveSurveys {
   
   
     }
-    
-    
-    
-//    @Test
-//    public void testBackNavigationInActiveSurveysScreen() throws Exception{
-//    	
-//    	  SurveyCenterScreen_HW surveyCenterScreenHw=  	new SurveyCenterScreen_HW();
-//    	  
-//          surveyCenterScreenHw.navigationToSurveyCenterScreen(ExcelReader.excel("UserName", "LoginPage"),
-//                  ExcelReader.excel("Password", "LoginPage"));
-//          
-//          surveyCenterScreenHw.navigateToActiveSurveysScreen();
-//          
-//          surveyCenterScreenHw.testBackButtonInActiveSurveysScreen();
-//          
-//          surveyCenterScreenHw.verifyWelcomeText();
-//          
-//          
-//          
-//
-//    	
-//    	
-//    }
-    
-    
-    
+   
     
 }

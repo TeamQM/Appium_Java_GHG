@@ -17,6 +17,16 @@ public class ReplyToExistingMessages {
 	
 	
 
+/**
+ * =============================================================================
+ * Method: testReplyToMessageWithText
+ * Description: Verify that user can reply to an existing message with text.
+ * Groups/Tags: Messaging, Regression
+ * Parameters: None
+ * Return: void
+ * =============================================================================
+ */
+
 	@Test(description="Verify that user can reply to an existing message with text.",groups= {"Messaging","Regression"})
 	public void testReplyToMessageWithText() throws Exception{
 	VerifySendingReplyInNewMessageScreen r=	new 	VerifySendingReplyInNewMessageScreen();
@@ -25,6 +35,17 @@ public class ReplyToExistingMessages {
 	
 	
 	
+	/**
+	 * =============================================================================
+	 * Method: testReplyToMessageWithHyperlink
+	 * Description: Verify that user can reply to an existing message with a hyperlink.
+	 * Groups/Tags: Messaging, Regression
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+
+
 	@Test(description="Verify that user can reply to an existing message with a hyperlink.",groups= {"Messaging","Regression"})
 	public void testReplyToMessageWithHyperlink() throws Exception{
 		VerifySendingReplyInNewMessageScreen r=	new 	VerifySendingReplyInNewMessageScreen();

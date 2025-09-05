@@ -11,7 +11,9 @@ import org.testng.TestListenerAdapter;
 
 import com.framework.goodhealthgateway.utilities.ConfigReader;
 import com.framework.goodhealthgateway.utilities.Constants;
+import com.framework.goodhealthgateway.utilities.MobileVideoRecorder;
 import com.framework.goodhealthgateway.utilities.ReportManager;
+import com.framework.goodhealthgateway.utilities.VideoReord;
 import com.opencsv.CSVWriter;
 
 import lombok.SneakyThrows;
@@ -43,7 +45,12 @@ public class SuiteEvent extends TestListenerAdapter implements ISuiteListener, I
 		}
 		String suite = System.getProperty("suite","Default suite picked");
 		System.out.println("Going to start suite: "+ suite);
-		ReportManager.startReportMobile();
+		try {
+			ReportManager.startReportMobile();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
@@ -57,6 +64,8 @@ public class SuiteEvent extends TestListenerAdapter implements ISuiteListener, I
 //        } catch (InvalidFormatException e) {
 //            throw new RuntimeException(e);
 //        }
+		//MobileVideoRecorder.stopRecording();
+	//System.out.println(	MobileVideoRecorder.getVideoFilePath());
         ReportManager.endReportMobile();
 		
 

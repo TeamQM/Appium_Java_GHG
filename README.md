@@ -8,9 +8,9 @@
 Apk version used in this POC: GHG-HW_132(103).apk
  
 
-## 📑 Scenarios 
+## 📑 Scenarios
 
-![img_1.png](img_1.png)
+![img_2.png](img_2.png)
 
 ## 🛠 Tools Used :
 
@@ -43,30 +43,22 @@ Apk version used in this POC: GHG-HW_132(103).apk
 ## ▶️ Run Application
 
 ### Running the tests on Real device :
-> To run your tests on local simply you need to execute the following xml file
-Android_Suite_SingleDevice.xml
 
-> Running the tests on browser stack for single device :
-
-> _Update:_ "browserstack" parameter value in config.properties and set as "Yes". 
-
-> To run your tests on browser stack simply you need to execute the following xml file
-Android_Suite_SingleDevice_BS.xml
+> To run your tests on local simply you need to execute the xml file from the folder Resources/TestSuites/RealDevice.
 
 ### Running the tests on Lambda Test :
 
-> Update "browserstack" parameter value in config.properties and set as "Yes".
-To run your tests on browser stack simply you need to execute the following xml file
-Android_Suite_MultipleDevices_BS.xml
+> Update "Lambda Test", "Cloud Execution" parameters value in config.properties and set as "True".
+>To run your tests on Lambda Test simply you need to execute the xml file from folder resources/Testsuites/LambdaTest.
+
 
 ### Running the tests on browser stack :
 
-> Update "browserstack" parameter value in config.properties and set as "Yes".
-To run your tests on browser stack simply you need to execute the following xml file
-Android_Suite_MultipleDevices_BS.xml
+> Update "browserstack" , "Cloud Execution" parameters value in config.properties and set as "True".
+>To run your tests on browser stack simply you need to execute the xml file from folder resources/Testsuites/LambdaTest.
 
 ## 📊 Extent Test Report
->After test execution, open the HTML report in any browser for a detailed pass/fail log with screenshots. HTML Reports are available under:
+>After test execution, open the HTML report in any browser for a detailed pass/fail log with screenshots, video recording. HTML Reports are available under:
 >./Reports/MobileReports/CurrentDateStamp/CurrentGHG-Date&TimeStamp.html
 
 ## 📂 Data Driven Framework : 
@@ -79,8 +71,8 @@ Android_Suite_MultipleDevices_BS.xml
 
 ## 📄🧩 Page Object Model : 
 
-> Added pages under src > test > java > com.framework > android > screens package
+> Added pages under src/test/java/com/framework/goodhealthgateway/android/screens/healthyweight package
 > 
-> Added tests under src > test > java > com.framework > android > testcases package
+> Added tests under src/test/java/com/framework/goodhealthgateway/android/testcases/healthyweight package
 > 
-> Added common classes and helper classes under src > test > java > com.framework > android > utils package
+> Added common classes and helper classes under src/test/java/com/framework/goodhealthgateway package
