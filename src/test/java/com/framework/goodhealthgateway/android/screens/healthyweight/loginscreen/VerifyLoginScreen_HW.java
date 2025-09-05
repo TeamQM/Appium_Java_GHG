@@ -260,7 +260,7 @@ public class VerifyLoginScreen_HW{
 		
 	        String actualErrorMessage=mobileActions.getAttribute(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW","LoginErrorMessage"), "content-desc");
 	
-	        	
+	        	//Intentionally failing the testcase
 	        mobileActions.verifyText(actualErrorMessage, expectedErrorMessage);
 	
 	}

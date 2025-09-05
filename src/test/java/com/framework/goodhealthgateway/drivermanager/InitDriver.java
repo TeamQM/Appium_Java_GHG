@@ -80,6 +80,7 @@ public class InitDriver {
 	public void tearDownMobileDriver() {
 
 		System.out.println("Execution ended - " + str_MobileOSType);
+		
 		if (driverFactory.getMobileDriver() != null) {
 			driverFactory.getMobileDriver().quit();
 			driverFactory.removeDriver();

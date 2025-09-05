@@ -427,7 +427,7 @@ ReportManager.logInfo("Clicking on  Message where message subject is :  <b style
     	
     	
     	//Extracting the data from Excel file 
-	     String username=  "qm1003@test.com";   //ExcelReader.excel("UserName", "LoginPage");
+	     String username=  ExcelReader.excel("UserName", "LoginPage");
 	     String password=ExcelReader.excel("Password", "LoginPage");
 	     
 	     
