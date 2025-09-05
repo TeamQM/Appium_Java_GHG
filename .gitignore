@@ -9,7 +9,9 @@ test-output/
 
 .classpath
 /bin/
+/src/test/resources/MobileApps/
 
-/MobileApps/
+
+
 
 

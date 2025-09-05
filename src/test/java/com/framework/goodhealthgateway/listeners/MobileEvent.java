@@ -257,7 +257,10 @@ public class MobileEvent implements ITestListener {
         totalTestCases.add(arg0.getMethod().getMethodName());
         String language = "English";
         ReportManager.startTestMobile(arg0.getMethod().getMethodName(), arg0.getMethod().getDescription(),
-                ConfigReader.getValue("Execution_Mobile"));
+                ConfigReader.getValue("Execution_Mobile"),arg0.getMethod().getGroups()
+                
+        		);
+       
 
         try {
             if (Platform == null) {
@@ -346,7 +349,7 @@ public class MobileEvent implements ITestListener {
             try {
                 Test model = currentTest.getModel();
                 String oldName = model.getName();
-                model.setName(oldName + "_" + language);
+                model.setName(oldName );
             } catch (Exception e) {
                 System.err.println("Error modifying test name: " + e.getMessage());
             }

@@ -60,27 +60,44 @@ public class CommonHelper {
 
     
     
+    /**
+     * This method is responsible for performing login in GoodHealth Gateway Application
+     * @param UserName
+     * @param Password
+     * @throws InterruptedException
+     * @throws IOException
+     */
     public void loginWithValidUserNameAndPwdForHw(String UserName, String Password) throws InterruptedException, IOException {
         ReportManager.logInfo("Test started login");
-        Thread.sleep(4000);
+       // Thread.sleep(4000);
     
-        mobileActions.clickIfVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"),"Warning");
+    /**
+     *  mobileActions.clickIfVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"),"Warning");
 
         mobileActions.clickIfVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"),"Warning");
-      
+         
+     */
+        mobileActions.smartClickWithVerification(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Warning"), "Ok Button in Warning Popup", 3);
     
         mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "UserName"), "username",UserName);
      
         
         
-        //mobileActions.hideKeyboard();
+     //   mobileActions.hideKeyboard(); //comment it if u running this on emulator
         Thread.sleep(1000);
 
         mobileActions.clickAndSendKeys(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "Password"),"password", Password);
-       // mobileActions.hideKeyboard();
-        Thread.sleep(2000);
+       // mobileActions.hideKeyboard(); //comment it if u running this on emulator
         mobileActions.click(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "LoginButton"), "Log in");
       
+        boolean isPageLoaded = mobileActions.waitForPageToLoadViaPageSource();
+     Thread.sleep(3000);
+     if(isPageLoaded) {
+     mobileActions.dismissPopupUsingEscapeButton();
+     }
+     
+    		  //}
+        
         mobileActions.clickIfVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "AppUpdate"),"Update Popup");
         
     WebElement element=    mobileActions.waitForVisible(MobileUtil.returnByBasedOnPageNameAndObjectName("LoginScreen_HW", "NameOfTheUser"));

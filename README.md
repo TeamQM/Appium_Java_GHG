@@ -1,23 +1,48 @@
-# Koo Mobile Automation Framework
-> Using Appium to Automate UI Testing of Android and iOS Koo Application with Java
-> Basically you need to have appium installed along with appium-doctor
+# 📱 Abacus Health POC  -  Mobile Automation Framework
+> A POC project demonstrating mobile automation of GHG Healthy Weight application using Appium Java Framework with Page Object Model (POM) design pattern.
 
 
-## CLI - Run specific test suite from CLI
-> mvn clean test -Dsuite="YOUR_SUITE_FILE.xml"
+## 📌 Application Under Test
 
-> mvn clean test -Dsuite="Android_Suite_SingleDevice.xml"
-
+> We are using GHG Healthy Weight Mobile Application (Android).
+Apk version used in this POC: GHG-HW_132(103).apk
  
 
-## Use browser stack from CLI 
-> mvn clean test -Dsuite="YOUR_BS_SUITE_FILE.xml" -Dbrowserstack = true
+## 📑 Scenarios 
 
-> _Note_: If you are not passing CLI option -Dbrowserstack then it will pick by default from the config > browserstack
+![img_1.png](img_1.png)
 
+## 🛠 Tools Used :
 
-## Running the tests on local device :
- 
+* Appium
+* Jdk(>=11)
+* Selenium WebDriver 
+* TestNG 
+* Maven 
+* Apache POI
+* Extent Report
+
+## ⚙️Installation
+
+- Install the dependencies and tools required to run the tests:
+
+- Install Appium and verify using appium-doctor
+
+- Install Java JDK (>=11)
+
+- Install Maven (>=3.5.1)
+
+- Install Android SDK for mobile platform setup
+
+- Clone this repository (or download as ZIP)
+
+- Navigate to the project directory and build dependencies:
+```bash
+    mvn clean install
+```
+## ▶️ Run Application
+
+### Running the tests on Real device :
 > To run your tests on local simply you need to execute the following xml file
 Android_Suite_SingleDevice.xml
 
@@ -28,39 +53,34 @@ Android_Suite_SingleDevice.xml
 > To run your tests on browser stack simply you need to execute the following xml file
 Android_Suite_SingleDevice_BS.xml
 
-## Running the tests on browser stack for multiple device :
+### Running the tests on Lambda Test :
 
 > Update "browserstack" parameter value in config.properties and set as "Yes".
 To run your tests on browser stack simply you need to execute the following xml file
 Android_Suite_MultipleDevices_BS.xml
 
-## Tools Used :
+### Running the tests on browser stack :
 
-* Selenium WebDriver : 3.14.0
-* TestNG : 7.4.0
-* Maven : 3.5.1
-* Appium
-* Apache POI
-* Extent Report
+> Update "browserstack" parameter value in config.properties and set as "Yes".
+To run your tests on browser stack simply you need to execute the following xml file
+Android_Suite_MultipleDevices_BS.xml
 
+## 📊 Extent Test Report
+>After test execution, open the HTML report in any browser for a detailed pass/fail log with screenshots. HTML Reports are available under:
+>./Reports/MobileReports/CurrentDateStamp/CurrentGHG-Date&TimeStamp.html
 
-## Data Driven Framework : 
+## 📂 Data Driven Framework : 
 
-> Used Fillo API with data provider to fetch the data for different languages from excel file that is under resources > Files > TestData.xlsx
+> Used Apache POI to fetch the test data from excel file that is under resources > Files > TestData.xlsx
 
-## Locators :
+## 🎯 Locators :
 
-> Added locators in .json file under resources > Locators directory
+> Added locators in android_Locators.json file under resources > Locators directory
 
-## Page Object Model : 
+## 📄🧩 Page Object Model : 
 
 > Added pages under src > test > java > com.framework > android > screens package
 > 
 > Added tests under src > test > java > com.framework > android > testcases package
 > 
 > Added common classes and helper classes under src > test > java > com.framework > android > utils package
-> 
-> Run from maven : 
-> mvn clean test -DsuiteXmlFile=Android_Suite_MultipleDevices_BS.xml
-> mvn clean test -DsuiteXmlFile=Android_Suite_SingleDevices_BS.xml
-> mvn clean test -DsuiteXmlFile=Android_Suite_SingleDevice.xml // For real device use this command

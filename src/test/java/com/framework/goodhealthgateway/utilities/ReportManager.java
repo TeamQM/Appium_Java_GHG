@@ -252,6 +252,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.goodhealthgateway.drivermanager.DriverFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -289,7 +290,11 @@ public class ReportManager {
             htmlReporter.config().setTheme(Theme.DARK);
         }
     }
-
+    
+    
+    
+    
+   
     public static void startTest(String testName, String description, String categories) {
         ExtentTest test = extent.createTest(testName, description);
         long threadId = Thread.currentThread().getId();
@@ -385,6 +390,7 @@ public class ReportManager {
             extent.attachReporter(htmlReporter);
             extent.setSystemInfo("Host Name", "GHG");
             extent.setSystemInfo("User Name", System.getProperty("user.name"));
+            extent.setSystemInfo("APK File", getMobileAppFileName());
            // extent.setSystemInfo("Java Version", System.getProperty("java.version"));
             htmlReporter.config().setDocumentTitle("GHG Mobile Application");
             htmlReporter.config().setReportName("GHG Mobile Application");
@@ -393,9 +399,33 @@ public class ReportManager {
         }
     }
 
+    
+    public static String getMobileAppFileName() {
+        String folderPath = "src/test/resources/MobileApps";
+        File folder = new File(folderPath);
+
+        if (folder.exists() && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files != null && files.length > 0) {
+                return files[0].getName();
+            } else {
+                throw new RuntimeException("No files found in " + folderPath);
+            }
+        } else {
+            throw new RuntimeException("Folder does not exist: " + folderPath);
+        }
+    }
+
+    
+    
+    
     @SuppressWarnings("deprecation")
-    public static void startTestMobile(String testName, String description, String categories) {
+    public static void startTestMobile(String testName, String description, String categories,String[] groups) {
         ExtentTest test = extent.createTest(testName, description);
+        
+        for (String group : groups) {
+            test.assignCategory(group);
+        }
         long threadId = Thread.currentThread().getId();
         testMap.put(threadId, test);
         testThreadLocal.set(test);

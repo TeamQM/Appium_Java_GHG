@@ -50,6 +50,10 @@
 			"locatorValue":"//android.widget.Button[@content-desc='Register Now']"
 		},
 		
+		"LoginErrorMessage":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.view.View[@content-desc='Login failed, please try again.']"
+		},
 		
 		
 		"GrantDialog":{
@@ -73,6 +77,14 @@
 		"NameOfTheUser":{
 			"locatorType":"xpath",
 			"locatorValue":"//android.view.View[contains(@content-desc,'Welcome Back')]"
+		},
+		"AdvertisePopup":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"//android.view.View[@content-desc='Dismiss']"
+		},
+		"LoginHeader":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.view.View[@content-desc='Log In']"
 		}
 		
 		
@@ -95,20 +107,42 @@
 	  },
 	  
 	  
+	  "EligibilityScreen_HW":{
+		
+		"Header":{
+		"locatorType":"uiautomator",
+		"locatorValue":"new UiSelector().descriptionContains(\"Eligibility\")"
+		},
+		"BackArrow":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Back"
+		}
+		
+	  },
+	  
+	  
 	  
 	 	
-	"HomePage":{
+	"HomeScreen_HW":{
 		
 		
 		"InboxTab":{
 			"locatorType":"xpath",
 			"locatorValue":"//android.widget.Button[contains(@content-desc,'Inbox') and contains(@content-desc,'Tab')]"
+		},
+		"WelcomePopUp":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Dismiss"
+		},
+		"SurveysTab": {
+		  "locatorType":"xpath",
+		  "locatorValue":"//android.widget.Button[contains(@content-desc,'Surveys')]"
 		}
 		
 	},
 	
 	
-	"InboxPage":{
+	"InboxScreen_HW":{
 		"Heading":{
 			
 			"locatorType":"xpath",
@@ -127,7 +161,33 @@
 			"locatorType":"uiautomator",
 			"locatorValue":"new UiSelector().className(\"android.widget.Button\").instance(0)"
 		},
-		
+		"MessageHeading":{
+					"locatorType":"classname",
+					"locatorValue":"android.view.View"
+				},
+				"ScrollMessages":{
+					"locatorType":"uiautomator",
+					"locatorValue":"new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(5)"
+				},
+				"AutomatedMessage":{
+					"locatorType":"xpath",
+					"locatorValue":"//android.widget.ImageView[contains(@content-desc,'Program Overview Session Completed!') and contains(@content-desc,'Congratulations! You completed your Program Overview Session and ')]"
+				},
+				"AutomatedMessage1":{
+					"locatorType":"uiautomator",
+					"locatorValue":"new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().descriptionContains(\"Program Overview Session Completed!\"))"
+				},
+				"EmptyMessagesHeader":{
+					"locatorType":"accessibilityid",
+					"locatorValue":"No Message"
+				},
+				"EmptyMessagesText":{
+					"locatorType":"accessibilityid",
+					"locatorValue":"You do not have any messages currently."
+				}
+				
+				
+				
 		
 		
 	},
@@ -161,10 +221,105 @@
 		"AcceptOk":{
 			"locatorType":"accessibilityid",
 			"locatorValue":"Ok"
+		},
+		"ReplyMessageField":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.widget.EditText"			
+		},
+		"ReplyMessageButton":{
+			"locatorType":"uiautomator",
+			"locatorValue":"new UiSelector().className(\"android.widget.Button\").instance(1)"
+		},
+		"RepliedMessage":{
+			"locatorType":"xpath",
+			"locatorValue":"//android.view.View[contains(@content-desc,'-35999 sec ago')]"
 		}
 		
 	},
 	
+	
+	
+	"SurveyCenterScreen": {
+	     "SurveyCenterTitle":{
+	       "locatorType":"xpath",
+	       "locatorValue":"//android.view.View[@content-desc='Survey Center']"
+	     },
+	     "SurveyCenterWelcomeMessage": {
+	       "locatorType":"xpath",
+	       "locatorValue":"//android.view.View[@content-desc='Welcome to the Survey Center']"
+	     },
+	     "SurveyCenterWelcomeText": {
+	       "locatorType":"xpath",
+	       "locatorValue":"//android.view.View[contains(@content-desc,'Click on any of the Active surveys ')]"
+	     },
+	     "WelcomeTextCloseButton": {
+	       "locatorType":"xpath",
+	       "locatorValue":"(//android.widget.Button)[1]"
+	     },
+		 
+		 "NoSurveysFoundTextInActiveSurveysSection": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.view.View[@content-desc='No surveys found']"
+		 }, 
+		 
+		 "ViewAllButtonForActiveSurveys": {
+		        "locatorType":"xpath",
+		        "locatorValue":"(//android.widget.Button[@content-desc='View All'])[1]"
+		      },
+		 	 "ActiveSurveysList":{
+		 		"locatorType":"xpath",
+		 		"locatorValue":"//android.view.View[contains(@content-desc,'Assigned')]"
+		 	 },
+			 
+			 "NoSurveysFoundTextInActiveSurveysPage": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.view.View[@content-desc='You do not have any surveys currently.']"
+			 },
+			 "ActiveSurveysPageTitle": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.view.View[@content-desc='Active Surveys']"
+			 },
+			 "BackButtonInActiveSurveysPage": {
+			   "locatorType":"xpath",
+			   "locatorValue":"//android.widget.Button[@content-desc='Back']"
+			 },
+		 
+	     "NoSurveysFoundTextInCompletedSurveysSection": {
+	       "locatorType":"xpath",
+	       "locatorValue":"//android.view.View[@content-desc='No surveys found']"
+	     },
+	     "NoSurveysFoundTextInCompletedSurveysPage": {
+	       "locatorType":"xpath",
+	       "locatorValue":"//android.view.View[@content-desc='You do not have any surveys currently.']"
+	     },
+	     "ViewAllButtonForCompletedSurveys": {
+	       "locatorType":"xpath",
+	       "locatorValue":"(//android.widget.Button[@content-desc='View All'])[2]"
+	     },
+		 "BackButtonInCompletedSurveysPage": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.widget.Button[@content-desc='Back']"
+		 },
+		 "CompletedSurveysPageTitle": {
+		   "locatorType":"xpath",
+		   "locatorValue":"//android.view.View[@content-desc='Completed Surveys']"
+		 }
+
+
+	   },
+	 
+	"ActiveSurveysScreen":{
+		
+		"ActiveSurveysHeader":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Active Surveys"
+		},
+		"BackArrow":{
+			"locatorType":"accessibilityid",
+			"locatorValue":"Back"
+		}
+		
+	},
 	
 	
 	
