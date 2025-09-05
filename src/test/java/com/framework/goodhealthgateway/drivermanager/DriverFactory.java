@@ -113,13 +113,16 @@ public class DriverFactory {
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
                // capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
                 //adb-RZCR404KRKY-fWiX24._adb-tls-connect._tcp
-                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+              
+                
+               // capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "adb-RZCR404KRKY-fWiX24._adb-tls-connect._tcp");
                 capabilities.setCapability("autoGrantPermissions", true);
                 capabilities.setCapability("autoAcceptAlerts", true);
                 
                 capabilities.setCapability("autoDismissAlerts", true);
-
-                //capabilities.setCapability(MobileCapabilityType.UDID, "RZCR404KRKY");
+                
+                //for usb 
+               capabilities.setCapability(MobileCapabilityType.UDID, "RZCR404KRKY");
                 
                ///
               //  capabilities.setCapability("appPackage", "com.abacushealth.goodhealthgateway");
@@ -133,7 +136,7 @@ public class DriverFactory {
 
                 appiumDriver.set(new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities));
 
-                getMobileDriver().manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+                getMobileDriver().manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
             } else if (ConfigReader.getValue("platFormName").equalsIgnoreCase("ios")) {
                 String[] platformInfo = platform.split(" ");
                 DesiredCapabilities capabilities = new DesiredCapabilities();

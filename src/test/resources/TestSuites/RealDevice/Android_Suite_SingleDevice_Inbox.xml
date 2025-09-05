@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Inbox">
+
+    <test name="Test">
+        <parameter name="platform" value="Android 13" />
+        <parameter name="udid" value="RZCR404KRKY" />
+
+
+        <classes>
+
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.inboxtestcases.TC_02_03_VerifyInboxPage_VerifyUnReadMessages"/>
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.inboxtestcases.ReplyToExistingMessages"/>
+
+        </classes>
+
+    </test> <!-- Test -->
+
+</suite>

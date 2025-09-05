@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Login">
+    <test name="Test">
+    <parameter name="platform" value="Android 13" />
+    <parameter name="udid" value="RZCR404KRKY" />
+
+    <classes>
+
+        <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.logintestcases.TC_05_LoginWithValidCredentials"/>
+        <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.logintestcases.LoginWithInvalidCredentials"/>
+    </classes>
+    </test>
+</suite>

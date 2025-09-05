@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RetryFailedTests" verbose="1">
+
+
+    <test name="Negative">
+        <parameter name="platform" value="Android 13" />
+        <parameter name="udid" value="RZCR404KRKY" />
+        <groups>
+            <run>
+                <include name="Negative"/>
+            </run>
+        </groups>
+
+        <classes>
+
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.logintestcases.TC_05_LoginWithValidCredentials"/>
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.logintestcases.LoginWithInvalidCredentials"/>
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.inboxtestcases.TC_02_03_VerifyInboxPage_VerifyUnReadMessages"/>
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.inboxtestcases.ReplyToExistingMessages"/>
+
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_01_02_VerifySurveyCenterScreen"/>
+
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_04_05_06_VerifyActiveSurveys"/>
+
+            <class name="com.framework.goodhealthgateway.android.testcases.healthyweight.surveycentertestcases.TC_07_08_09_VerifyCompletedSurveys"/>
+
+
+        </classes>
+
+    </test> <!-- Test -->
+
+
+</suite> <!-- Suite -->

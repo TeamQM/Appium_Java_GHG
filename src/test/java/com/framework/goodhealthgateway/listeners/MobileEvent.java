@@ -230,6 +230,7 @@ import com.framework.goodhealthgateway.android.utils.LanguageDataProvider;
 import com.framework.goodhealthgateway.drivermanager.DriverFactory;
 import com.framework.goodhealthgateway.drivermanager.InitDriver;
 import com.framework.goodhealthgateway.utilities.ConfigReader;
+import com.framework.goodhealthgateway.utilities.MobileVideoRecorder;
 import com.framework.goodhealthgateway.utilities.ReportManager;
 
 public class MobileEvent implements ITestListener {
@@ -251,13 +252,17 @@ public class MobileEvent implements ITestListener {
     public String DeviceName = "";
     public String DeviceVersion = "";
     public String RunID;
+    MobileVideoRecorder videoRecorder=  null;
 
     @Override
     public void onTestStart(ITestResult arg0) {
         totalTestCases.add(arg0.getMethod().getMethodName());
         String language = "English";
         ReportManager.startTestMobile(arg0.getMethod().getMethodName(), arg0.getMethod().getDescription(),
-                ConfigReader.getValue("Execution_Mobile"));
+                ConfigReader.getValue("Execution_Mobile"),arg0.getMethod().getGroups()
+                
+        		);
+       
 
         try {
             if (Platform == null) {
@@ -303,19 +308,29 @@ public class MobileEvent implements ITestListener {
                 System.err.println("Lambda name setting failed: " + e.getMessage());
             }
         }
-
+        	
+        
         MobileActions mobileActions = new MobileActions();
         mobileActions.sleep(2000);
+   videoRecorder=     new MobileVideoRecorder(DriverFactory.getInstance().getMobileDriver());
+      
+     videoRecorder.startTestRecording(arg0.getMethod().getMethodName());
     }
+    
+    
+    
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         passedTests.add(iTestResult.getMethod().getMethodName());
         System.out.println("Test Success: " + iTestResult.getMethod().getMethodName());
         String language = "English";
+        String testMethodName = iTestResult.getMethod().getMethodName();
+
 
         try {
-            ReportManager.logScreenshotInfo();
+           // ReportManager.logScreenshotInfo();
+        	ReportManager.logScreenshotInfoWithTitle(testMethodName);
             String description = iTestResult.getMethod().getDescription();
             String temp = description.split("]")[0];
             String[] split = temp.replace("[", "").split(", ");
@@ -346,7 +361,7 @@ public class MobileEvent implements ITestListener {
             try {
                 Test model = currentTest.getModel();
                 String oldName = model.getName();
-                model.setName(oldName + "_" + language);
+                model.setName(oldName );
             } catch (Exception e) {
                 System.err.println("Error modifying test name: " + e.getMessage());
             }
@@ -365,10 +380,14 @@ public class MobileEvent implements ITestListener {
         }
 
         try {
+        	 // videoRecorder.stopTestRecording();
+              //System.out.println(videoRecorder.getVideoFilePath());
             initDriver.tearDownMobileDriver();
+          
         } catch (Exception e) {
             System.err.println("Error in driver teardown: " + e.getMessage());
         }
+        
     }
 
     @Override
@@ -411,7 +430,14 @@ public class MobileEvent implements ITestListener {
         }
 
         try {
-            ReportManager.logScreenshotInfo();
+            String testMethodName = iTestResult.getMethod().getMethodName();
+
+            //ReportManager.logScreenshotInfo();
+            ReportManager.logScreenshotInfoWithTitle(testMethodName);
+            videoRecorder.stopTestRecording();
+            System.out.println(videoRecorder.getVideoFilePath());
+            ReportManager.logVideoForTestMethod(iTestResult.getMethod().getMethodName());
+            System.err.println("Before html");
         } catch (IOException e) {
             System.err.println("Failed to capture screenshot: " + e.getMessage());
         } catch (Exception e) {
@@ -424,7 +450,7 @@ public class MobileEvent implements ITestListener {
             try {
                 Test model = currentTest.getModel();
                 String oldName = model.getName();
-                model.setName(oldName + "_" + language);
+                model.setName(oldName );
             } catch (Exception e) {
                 System.err.println("Error modifying test name: " + e.getMessage());
             }
@@ -443,10 +469,16 @@ public class MobileEvent implements ITestListener {
         }
 
         try {
+//        	   videoRecorder.stopTestRecording();
+//               System.out.println(videoRecorder.getVideoFilePath());
+//               ReportManager.logVideoForTestMethod(iTestResult.getMethod().getMethodName());
+//               System.err.println("Before html");
             initDriver.tearDownMobileDriver();
+         
         } catch (Exception e) {
             System.err.println("Error in driver teardown: " + e.getMessage());
         }
+       
     }
 
     @Override
@@ -454,11 +486,13 @@ public class MobileEvent implements ITestListener {
         // Implementation if needed
     }
 
+  
     @Override
     public void onFinish(ITestContext arg0) {
         ReportManager.endReportMobile();
     }
 
+    
     @Override
     public void onStart(ITestContext arg0) {
         Platform = arg0.getCurrentXmlTest().getParameter(KEY);

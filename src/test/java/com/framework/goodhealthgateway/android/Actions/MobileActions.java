@@ -1,6 +1,7 @@
 package com.framework.goodhealthgateway.android.Actions;
 
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -24,7 +25,12 @@ import com.framework.goodhealthgateway.utilities.ReportManager;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
@@ -75,7 +81,110 @@ String currantActivity ;
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 30);
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
+	
+	/**
+	 * =============================================================================
+	 * Method: waitForVisible | Author: Annam Deepak | Date:02 Sep 2025 |
+	 * Description: This method wait for element it will check every 5 sec its
+	 * present or not until 30 sec | Parameters: element | Return: element
+	 * =============================================================================
+	 */
+	public WebElement waitForVisible(WebElement element) {
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 30);
+		return wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	
+	/**
+	 * =============================================================================
+	 * Method: isNotDisplayed | Author: Sanjoosha Mahakani | Date:03 Sep 2025 |
+	 * Description: This method will find the element and returns true if element not displayed 
+	 * | Parameters: locator,info | Return: boolean
+	 * =============================================================================
+	 */
+	public boolean isNotDisplayed(By locator, String info) {
+	    try {
+	       // Use findElements instead of findElement to avoid NoSuchElementException
+	       List<WebElement> elements = DriverFactory.getInstance().getMobileDriver().findElements(locator);
 
+	       if (elements.isEmpty()) {
+	          ReportManager.logInfo("✅ Element NOT present in DOM: " + "<b style=\"color:red;\">" + info + "</b>");
+	          System.out.println("✅ Element NOT present in DOM: " + info);
+	          return true; // not displayed
+	       } else {
+	          boolean visible = elements.get(0).isDisplayed();
+	          if (!visible) {
+	             ReportManager.logInfo("✅ Element present but NOT visible: " + "<b style=\"color:red;\">" + info + "</b>");
+	             System.out.println("✅ Element present but NOT visible: " + info);
+	             return true;
+	          } else {
+	             ReportManager.logInfo("❌ Element IS displayed: " + "<b style=\"color:green;\">" + info + "</b>");
+	             System.out.println("❌ Element IS displayed: " + info);
+	             return false;
+	          }
+	       }
+	    } catch (Exception e) {
+	       // In case anything unexpected happens, treat as not displayed
+	       ReportManager.logInfo("✅ Element NOT displayed (exception caught): " + "<b style=\"color:red;\">" + info + "</b>");
+	       System.out.println("✅ Element NOT displayed (exception caught): " + info);
+	       return true;
+	    }
+	}
+
+	/**
+	 * =============================================================================
+	 * Method: waitForPageToLoadViaPageSource 
+	 * Author: Annam  Deepak 
+	 * Date: 03 Sep 2025
+	 * Description: This method waits for a page to load by continuously checking 
+	 *              the page source for the presence of a dismiss button. It uses 
+	 *              WebDriverWait with a timeout of 20 seconds.
+	 * Parameters: None
+	 * Return: boolean →true if the dismiss button is found within the timeout, 
+	 *                   false otherwise.
+	 * =============================================================================
+	 */
+
+	public boolean waitForPageToLoadViaPageSource() {
+	    try {
+	        AppiumDriver driver = DriverFactory.getInstance().getMobileDriver();
+	        WebDriverWait wait = new WebDriverWait(driver, 20);
+	        
+	        return wait.until(dr -> {
+	            String pageSource = dr.getPageSource();
+	            return isDismissButtonPresent(pageSource);
+	        });
+	        
+	    } catch (Exception e) {
+	        System.out.println("Page load wait via page source failed: " + e.getMessage());
+	        return false;
+	    }
+	}
+
+	private boolean isDismissButtonPresent(String pageSource) {
+	    if (pageSource == null || pageSource.isEmpty()) {
+	        return false;
+	    }
+	    
+	    // Check for the specific dismiss button in page source
+	    // The locator: //android.view.View[@content-desc="Dismiss"]
+	    boolean hasDismissButton = pageSource.contains("content-desc=\"Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.\"") ||
+	                              pageSource.contains("content-desc='Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.'") ||
+	                             pageSource.contains("Now you can earn rewards for staying on top of activities that support you in maintaining your weight loss.");
+	    
+	    System.out.println("Dismiss button present in source: " + hasDismissButton);
+	    return hasDismissButton;
+	}
+	
+	/**
+	 * =============================================================================
+	 * Method: waitForVisible1 | Author: Annam Deepak | Date:28 Aug 2025 |
+	 * Description: This method wait for element it will check every 5 sec its
+	 * present or not until 30 sec 
+	 * | Parameters: locator | 
+	 * Return: boolean true if the element is visible within timeout otherwise false
+	 * =============================================================================
+	 */
 	public boolean waitForVisible1(By locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 30);
@@ -85,6 +194,123 @@ String currantActivity ;
 		catch(Exception e) {
 			return false;
 		}
+	}
+	
+	/**
+	 * =============================================================================
+	 * Method: waitForVisible2 | Author: Annam Deepak | Date:01 Sep 2025 |
+	 * Description: This method wait for element it will check every 5 sec its
+	 * present or not until 15 sec 
+	 * | Parameters: locator | 
+	 * Return: boolean true if the element is visible within timeout otherwise false
+	 * =============================================================================
+	 */
+	public boolean waitForVisible2(By locator) {
+		try {
+			WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 15);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			return true;
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * =============================================================================
+	 * Method: smartClickWithVerification
+	 * Author: Annam  Deepak
+	 * Date: 02 Sep 2025
+	 * Description: This method performs multiple click attempts on a given element 
+	 *              until it disappears or the maximum number of clicks is reached. 
+	 *              It waits for the element to be visible before each click and 
+	 *              logs the click status using ReportManager.
+	 * Parameters: 
+	 *      @param locator   → The By locator of the element to click
+	 *      @param info      → Descriptive info about the element (used for logging)
+	 *      @param maxClicks → Maximum number of click attempts
+	 * Return: void
+	 * =============================================================================
+	 */
+
+	public void smartClickWithVerification(By locator, String info, int maxClicks) {
+	    int successfulClicks = 0;
+	    
+	    for (int i = 0; i < maxClicks; i++) {
+	        if (waitForVisible2(locator)) {
+	            try {
+	                DriverFactory.getInstance().getMobileDriver().findElement(locator).click();
+	                successfulClicks++;
+	                System.out.println(" Successful click #" + successfulClicks + " on: " + info);
+	                Thread.sleep(800); // Wait for UI response
+	                
+	                if (!waitForVisible2(locator)) {
+	                    System.out.println(" Element disappeared after " + successfulClicks + " clicks");
+	                    break;
+	                }
+	                
+	            } catch (Exception e) {
+	                System.out.println(" Click failed on attempt " + (i + 1));
+	            }
+	        } else {
+	            System.out.println(" Element no longer visible after " + successfulClicks + " clicks");
+	            break;
+	        }
+	    }
+	    
+	    if (successfulClicks > 0) {
+	        ReportManager.logInfo("Successfully performed " + successfulClicks + " clicks on " + " <b style=\"color:green;\">" + info + "</b>");
+	    } else {
+	        ReportManager.logInfo("Not Displayed the " + " <b style=\"color:green;\">" + info + "</b> ");
+	    }
+	}
+	
+	
+
+
+	/**
+	 * =============================================================================
+	 * Method: isElementPresent
+	 *  | Author: Annam Deepak
+	 *   | Date:03 Sep 2025 |
+	 * Description: This method wait for element and check for every5 seconds until the provided timeout
+	 *  | Parameters: locator,timeout [in seconds]
+	 *   | Return: boolean true if the element is present otherwise returns false
+	 * =============================================================================
+	 */
+	private boolean isElementPresent(By locator, int timeoutSeconds) {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 
+	            timeoutSeconds);
+	        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	        return true;
+	    } catch (TimeoutException e) {
+	        return false;
+	    }
+	}
+	
+	/**
+	 * =============================================================================
+	 * Method: checkHyperLinkIsPresentOrNot
+	 * Author: Annam  Deepak
+	 * Date: 01 Sep 2025
+	 * Description: This method checks whether a given hyperlink is present on the screen 
+	 *              by locating it using the provided link text in the content-desc attribute. 
+	 *              If found, it retrieves and returns the hyperlink's content description.
+	 * Parameters:
+	 *      @param link → The hyperlink text to search for in the content-desc attribute
+	 * Return: String → The content description of the hyperlink if present, 
+	 *                  otherwise an empty string
+	 * =============================================================================
+	 */
+
+	public String checkHyperLinkIsPresentOrNot(String link) {
+		String contentDescriptionOfLink="";
+		By hyperLink = By.xpath("//android.view.View[@content-desc='" + link + "']");
+		if(	  waitForVisible1(hyperLink)) {
+		 contentDescriptionOfLink=	getAttribute(hyperLink, "content-desc");
+		}
+		return contentDescriptionOfLink;
 	}
 
 	/**
@@ -102,15 +328,267 @@ String currantActivity ;
 		System.out.println("Successfully element displayed :-" + info);
 
 		elm.click();
-		ReportManager.logInfo("Successfully clicked on " + " <b style=\"color:green;\"> " + info + "</b>"+"button");
+		ReportManager.logInfo("Successfully clicked on " + " <b style=\"color:green;\"> " + info + "</b>"+" button");
 		System.out.println("Successfully clicked on - " + info);
 
 		// ReportManager.logScreenshotInfo();
 
 	}
+	/**
+	 * =============================================================================
+	 * Method: click
+	 * Author: Annam  Deepak
+	 * Date: 03 Sep 2025
+	 * Description: This method waits for a WebElement to become visible and 
+	 *              performs a click action on it.
+	 * Parameters:
+	 *      @param element → The WebElement to be clicked
+	 * Return: void
+	 * =============================================================================
+	 */
+
+	public void click(WebElement element) {
+		
+		WebElement e=	waitForVisible(element);
+		
+		e.click();
+		//ReportManager.logInfo("Successfully clicked on " + " <b style=\"color:green;\"> " + info + "</b>"+"button");
+	}
+	
+	
+	/**
+	 * =============================================================================
+	 * Method: scrollToEnd
+	 * Author: Annam  Deepak
+	 * Date: 29  Aug 2025
+	 * Description: This method performs a vertical scroll to the end of a 
+	 *              scrollable container using the provided class name.
+	 * Parameters:
+	 *      @param className → The class name of the scrollable UI element
+	 * Return: void
+	 * =============================================================================
+	 */
+	public void scrollToEnd(String className) {
+	    try {
+	        DriverFactory.getInstance().getMobileDriver().findElement(MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().className(\"" + className + "\")).scrollToEnd(5)"));
+	    } catch (Exception e) {
+	        System.out.println("Nothing to scroll for class: " + className);
+	    }
+	}
+	
+	
+	
+	/**
+	 * =============================================================================
+	 * Method: scrollAndCollect
+	 * Author: Annam  Deepak
+	 * Date: 01 Sep 2025
+	 * Description: This method continuously scrolls through a scrollable container 
+	 *              and collects all unique elements that match the given locator. 
+	 *              It ensures no duplicate elements are added by tracking element 
+	 *              identifiers in a HashSet. Scrolling continues until no new 
+	 *              elements are loaded after a scroll action.
+	 * Parameters:
+	 *      @param locator   → The By locator used to identify target elements
+	 *      @param className → The class name of the scrollable container 
+	 *                         (used in UiScrollable)
+	 * Return: List<WebElement> → A list of all unique elements found while scrolling
+	 * =============================================================================
+	 */
+	
+	public List<WebElement> scrollAndCollect(By locator,String className) {
+	    List<WebElement> allMessages = new ArrayList<>();
+	    boolean canScrollMore = true;
+	    Set<String> seenElements = new HashSet<>(); 
+
+	    while (canScrollMore) {
+	        List<WebElement> visible = elements(locator);
+	        System.out.println("Visible size"+visible.size());
+	        for (WebElement el : visible) {
+	            String elementId = getElementIdentifier(el); 
+	            if (!seenElements.contains(elementId)) {
+	                allMessages.add(el);
+	                seenElements.add(elementId);
+	            }
+	        }
 
 
+	            try {
+	                List<WebElement> currentElements =   elements(locator);
+	                if (!currentElements.isEmpty()) {
+	                    WebElement lastElement = currentElements.get(currentElements.size() - 1);
+	                    
+	                    int beforeScroll = currentElements.size();
+	                    
+	                    DriverFactory.getInstance().getMobileDriver().findElement(
+	                        MobileBy.AndroidUIAutomator("new UiScrollable(new UiSelector().className(\"" + className + "\")).scrollForward()")
+	                    );
+	                    
+	                    Thread.sleep(500); 
+	                    List<WebElement> afterScrollElements =  elements(locator);
+	                    
+	                    canScrollMore = afterScrollElements.size() > beforeScroll;
+	                } else {
+	                    canScrollMore = false;
+	                }
+	            } catch (Exception ex) {
+	                canScrollMore = false;
+	            }
+	        }
 
+	    return allMessages;
+	}
+
+	
+
+	private String getElementIdentifier(WebElement element) {
+	    try {
+	        String text = element.getText();
+	        String location = element.getLocation().toString();
+	        return text + "|" + location;
+	    } catch (Exception e) {
+	        return element.toString();
+	    }
+	}
+	
+	
+	/**
+	 * =============================================================================
+	 * Method: scrollAndCollectByXpath
+	 * Author: Annam Naga Venkata Deepak
+	 * Date: 03 Sep 2025
+	 * Description: This method scrolls through a mobile screen and collects all 
+	 *              unique elements matching a given locator (XPath-based). It uses 
+	 *              a stable identifier for deduplication and stops scrolling after 
+	 *              encountering consecutive scrolls with no new elements found.
+	 * Parameters:
+	 *      @param locator   → The By locator (XPath) to identify target elements
+	 *      @param className → The class name of the scrollable container 
+	 *                         (used for UiScrollable)
+	 * Return: List<WebElement> → A list of all unique elements collected
+	 * =============================================================================
+	 */
+
+	public List<WebElement> scrollAndCollectByXpath(By locator, String className) {
+	    List<WebElement> allElements = new ArrayList<>();
+	    Set<String> seenElementIds = new HashSet<>();
+	    int consecutiveNoNewElements = 0;
+	    final int MAX_CONSECUTIVE_NO_NEW = 2; 
+
+	    try {
+	        while (consecutiveNoNewElements < MAX_CONSECUTIVE_NO_NEW) {
+	            List<WebElement> currentElements = elements(locator);
+	            int newElementsFound = 0;
+
+	            for (WebElement element : currentElements) {
+	                String elementId = getStableElementIdentifier(element);
+	                if (!seenElementIds.contains(elementId)) {
+	                    allElements.add(element);
+	                    seenElementIds.add(elementId);
+	                    newElementsFound++;
+	                }
+	            }
+
+	            if (newElementsFound == 0) {
+	                consecutiveNoNewElements++;
+	            } else {
+	                consecutiveNoNewElements = 0; 
+	            }
+
+	            if (consecutiveNoNewElements < MAX_CONSECUTIVE_NO_NEW) {
+	                boolean scrollSuccess = performScroll(className);
+	                if (!scrollSuccess) {
+	                    break; // Can't scroll further
+	                }
+	                
+	                waitForPotentialNewContent();
+	            }
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Scroll collection interrupted: " + e.getMessage());
+	    }
+
+	    return allElements;
+	}
+
+	private String getStableElementIdentifier(WebElement element) {
+	    try {
+	        String text = element.getText();
+	        String resourceId = element.getAttribute("resource-id");
+	        String contentDesc = element.getAttribute("content-desc");
+	        
+	        return (text != null ? text : "") + "|" + 
+	               (resourceId != null ? resourceId : "") + "|" + 
+	               (contentDesc != null ? contentDesc : "");
+	    } catch (StaleElementReferenceException e) {
+	        return "stale-" + System.currentTimeMillis(); 
+	    }
+	}
+
+	/**
+	 * =============================================================================
+	 * Method: performScroll
+	 * Author: Annam  Deepak
+	 * Date: 03 Sep 2025
+	 * Description: This method performs a forward scroll action inside a scrollable 
+	 *              container identified by the given class name. It uses 
+	 *              UiScrollable to trigger the scroll. If the scroll fails 
+	 *              (e.g., already at the end of the list), it returns false.
+	 * Parameters:
+	 *      @param className → The class name of the scrollable container to scroll
+	 * Return: boolean → true if the scroll action is successful, 
+	 *                   false if scrolling is not possible
+	 * =============================================================================
+	 */
+	private boolean performScroll(String className) {
+	    try {
+	        DriverFactory.getInstance().getMobileDriver().findElement(
+	            MobileBy.AndroidUIAutomator(
+	                "new UiScrollable(new UiSelector().className(\"" + className + "\")).scrollForward()"
+	            )
+	        );
+	        return true;
+	    } catch (Exception e) {
+	        return false; // Scroll failed
+	    }
+	}
+
+	/**
+	 * =============================================================================
+	 * Method: waitForPotentialNewContent
+	 * Author: Annam  Deepak
+	 * Date: 30 Aug 2025
+	 * Description: This method provides a short wait (5 seconds) after a scroll 
+	 *              operation to allow potential new content to load on the page. 
+	 *              It uses WebDriverWait with a JavaScript condition that checks 
+	 *              if the document.readyState is 'complete'. If the wait fails, 
+	 *              execution continues without throwing an error.
+	 * Parameters: None
+	 * Return: void
+	 * =============================================================================
+	 */
+	private void waitForPotentialNewContent() {
+	    try {
+	        WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(), 
+	            5);
+	        wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete'"));
+	    } catch (Exception e) {
+	        // Continue even if wait fails
+	    }
+	}
+	
+
+	/**
+	 * =============================================================================
+	 * Method: clickIfVisible | Author: Annam Deepak | Date:29 Aug 2025 |
+	 * Description: This method will check if the element is visible.It will check every 5 sec its
+	 * present or not until 35 sec and performs click if the element is visible
+	 *  | Parameters: locator,info | Return: void 
+	 * =============================================================================
+	 */
+	
+	
+	
 	  public void clickIfVisible(By locator,String info) {
 	        try {
 	            WebDriverWait wait = new WebDriverWait(DriverFactory.getInstance().getMobileDriver(),35);
@@ -373,6 +851,164 @@ String currantActivity ;
 		}
 	}
 
+	
+	/**
+	 * =============================================================================
+	 * Method: swipeUp_FindElementClick1 | Author: Annam Deepak | Date:03 Sep 2025 |
+	 * Description: This method will swipe till element found and click| Parameters:
+	 * howManySwipes, locator | Return: boolean true if clicked otherwise false
+	 * =============================================================================
+	 */
+	public boolean swipeUpFindElementClick1(int howManySwipes, By locator) throws InterruptedException {
+		Dimension size = DriverFactory.getInstance().getMobileDriver().manage().window().getSize();
+	    AppiumDriver driver = DriverFactory.getInstance().getMobileDriver();
+
+		boolean isClicked=false;
+		// calculate coordinates for vertical swipe
+		int startY = (int) (size.height * 0.70);
+		int endY = (int) (size.height * 0.30);
+		int startX = (size.width / 2);
+		Thread.sleep(3000);
+		try {
+			for (int i = 1; i <= howManySwipes; i++) {
+				boolean isElmPresent = DriverFactory.getInstance().getMobileDriver().findElements(locator).size() > 0;
+				if (isElmPresent) {
+					DriverFactory.getInstance().getMobileDriver().findElement(locator).click();
+					isClicked=true;
+					break;
+				}
+//				new TouchAction(DriverFactory.getInstance().getMobileDriver())
+//						.longPress(PointOption.point(startX, startY)).moveTo(PointOption.point(startX, endY)).release()
+//						.perform();
+				  PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+		            Sequence swipe = new Sequence(finger, 1);
+		            swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+		            swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+		            swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), startX, endY));
+		            swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+		            driver.perform(Arrays.asList(swipe));
+
+
+		            Thread.sleep(1000);
+			}
+		} catch (Exception e) {
+			// print error or something
+		}
+		return isClicked;
+	}
+	
+	
+	/**
+	 * =============================================================================
+	 * Method: swipeUpAndCollectMessageCount
+	 * Author: Annam Deepak
+	 * Date: 01 Sep 2025
+	 * Description: This method will swipe up and collect the message count
+	 * Parameters:
+	 *      @param howManySwipes   → we need to mention the value to swipe how many times
+	 *      @param locator  → We need to provide the locator
+	 * Return: int → size of the list
+	 * =============================================================================
+	 */
+	public int swipeUpAndCollectMessageCount(int howManySwipes, By locator) throws InterruptedException {
+	    AppiumDriver driver = DriverFactory.getInstance().getMobileDriver();
+	    Dimension size = driver.manage().window().getSize();
+	    
+	    Set<String> uniqueMessages = new HashSet<>();
+	    
+	    int startY = (int) (size.height * 0.70);
+	    int endY = (int) (size.height * 0.30);
+	    int startX = (size.width / 2);
+	    
+	    Thread.sleep(3000);
+	    
+	    try {
+	        for (int i = 0; i <= howManySwipes; i++) {
+	            // Wait for elements to be present and visible
+	         //   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	            List<WebElement> elements = elements(locator);//wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+	            
+	            for (WebElement el : elements) {
+	                try {
+	                    String messageContent = el.getAttribute("content-desc");
+	                    if (messageContent != null && !messageContent.trim().isEmpty()) {
+	                        uniqueMessages.add(messageContent.trim());
+	                    } else {
+	                        // Fallback to text if content-desc is empty
+	                        String text = el.getText();
+	                        if (text != null && !text.trim().isEmpty()) {
+	                            uniqueMessages.add(text.trim());
+	                        }
+	                    }
+	                } catch (StaleElementReferenceException e) {
+	                    // Element became stale, skip and continue
+	                    continue;
+	                }
+	            }
+	            
+	            if (i < howManySwipes) {
+	                PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+	                Sequence swipe = new Sequence(finger, 1);
+	                swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
+	                swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+	                swipe.addAction(finger.createPointerMove(Duration.ofMillis(800), PointerInput.Origin.viewport(), startX, endY));
+	                swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+	                driver.perform(Arrays.asList(swipe));
+	                
+	                // Wait for content to load after swipe
+	                Thread.sleep(1500);
+	            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    
+	    // Debug output
+	    System.out.println("Unique messages found: " + uniqueMessages);
+	    System.out.println("Total unique count: " + uniqueMessages.size());
+	    
+	    return uniqueMessages.size();
+	}
+	
+	/**
+	 * =============================================================================
+	 * Method: scrollUntilElementFound
+	 * Author: Annam  Deepak
+	 * Date: 01 Sep 2025
+	 * Description: This method scrolls through a scrollable container until an 
+	 *              element matching the given text or content description is found. 
+	 *              It uses Android UiScrollable with either descriptionContains 
+	 *              or textContains depending on the flag provided.
+	 * Parameters:
+	 *      @param value   → The partial text or description to search for
+	 *      @param isDesc  → true to match using content-desc (descriptionContains),
+	 *                       false to match using visible text (textContains)
+	 * Return: WebElement → The first matching element if found, otherwise null
+	 * =============================================================================
+	 */
+	  public  WebElement scrollUntilElementFound( String value, boolean isDesc) {
+	        String uiSelector;
+
+	        if (isDesc) {
+	            uiSelector = String.format(
+	                "new UiScrollable(new UiSelector().scrollable(true))" +
+	                ".scrollIntoView(new UiSelector().descriptionContains(\"%s\"))", value
+	            );
+	        } else {
+	            uiSelector = String.format(
+	                "new UiScrollable(new UiSelector().scrollable(true))" +
+	                ".scrollIntoView(new UiSelector().textContains(\"%s\"))", value
+	            );
+	        }
+
+	        try {
+	        return DriverFactory.getInstance().getMobileDriver().findElement(MobileBy.AndroidUIAutomator(uiSelector));
+	        }
+	        catch(Exception e) {
+	        	return null;
+	        }
+	    }
+
 
 	public void swipeElementAndroid1(By locator, String dir, By toLocator, int count) {
 		System.out.println("swipeElementAndroid(): dir: '" + dir + "'"); // always log your actions
@@ -469,6 +1105,11 @@ String currantActivity ;
 			// print error or something
 		}
 	}
+	
+	
+	
+	
+
 
 	public boolean isElmPresent(By locator) {
 		boolean isElmPresent = DriverFactory.getInstance().getMobileDriver().findElements(locator).size() > 0;
@@ -520,6 +1161,20 @@ String currantActivity ;
 				.release().perform();
 
 	}
+	
+	public void dismissPopupUsingEscapeButton() {
+	
+	 AppiumDriver driver = DriverFactory.getInstance().getMobileDriver();
+     
+     if (driver instanceof AndroidDriver) {
+         AndroidDriver androidDriver = (AndroidDriver) driver;
+         
+         // Try ESCAPE first (most effective for popups)
+         androidDriver.pressKey(new KeyEvent(AndroidKey.ESCAPE));
+         
+         System.out.println("Pressed ESCAPE button");
+     }
+     }
 
 	/**
 	 * =============================================================================
